@@ -1,0 +1,239 @@
+<div class="container">
+    <h1>Así es como <span>lo hacemos...</span></h1>
+    <!-- TARJETAS DE CADA PASO -->
+    <div class="cards">
+      <!-- Paso 1 -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-icon">👨‍💻</div>
+            <div class="card-title">Construimos</div>
+          </div>
+        </div>
+        <p></p>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="card">
+        <div class="card-header">
+          
+          <div>
+            <div class="card-icon">🧪️</div>
+            <div class="card-title">Medimos</div>
+          </div>
+        </div>
+        <p></p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="card">
+        <div class="card-header">
+          
+          <div>
+            <div class="card-icon">🧠</div>
+            <div class="card-title">Aprendemos</div>
+          </div>
+        </div>
+        <p></p>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="card">
+        <div class="card-header">
+          
+          <div>
+            <div class="card-icon">🔄</div>
+            <div class="card-title">Iteramos</div>
+          </div>
+        </div>
+        <p></p>
+      </div>
+
+      <!-- Paso 5 
+      <div class="card">
+        <div class="card-header">
+          
+          <div>
+            <div class="card-icon">⚙️</div>
+            <div class="card-title">Pruebas</div>
+          </div>
+        </div>
+        <p>Crear un prototipo interactivo para evaluar la experiencia de usuario.</p>
+      </div>
+    </div>-->
+
+ <!-- TIMELINE CON 7 CÍRCULOS 
+ <div class="timeline">
+    <div class="timeline-step active"></div>
+    <div class="timeline-step">02</div>
+    <div class="timeline-step">03</div>
+    <div class="timeline-step">02</div>
+    <div class="timeline-step">03</div>
+    <div class="timeline-step">02</div>
+    <div class="timeline-step">03</div>
+    
+</div>-->
+
+     
+
+</div>
+   
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .space{
+        height: 50px;
+    }
+
+    body {
+      background: white;
+      color: #333232;
+      
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      text-align: center;
+    
+    }
+
+    /* ===== TÍTULO PRINCIPAL ===== */
+    h1 {
+            color: white;
+            font-size:42px;
+            max-width: 100%;
+            line-height: normal;
+            padding: 0% 5% 5% 0%;
+           
+
+
+        }
+    
+        span {
+            color: white;
+            font-style: italic;
+            font-family: Playfair-Display !important; 
+            font-size: 50px !important;
+        }
+
+    /* ===== TIMELINE SUPERIOR ===== */
+    .timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      margin-top: 5rem;
+    }
+
+    /* Línea base de la timeline */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #ddd;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    /* Cada círculo (paso) */
+    .timeline-step {
+      position: relative;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #ebebeb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-weight: bold;
+    }
+
+    /* El primer círculo (activo) */
+    .timeline-step.active {
+      background: #7a32f7; /* morado */
+      color: #fff;
+    }
+
+    /* Para mostrar un check en el paso activo */
+    .timeline-step.active::before {
+      content: '✔';
+      font-weight: normal;
+      font-size: 0.9rem;
+    }
+
+    /* ===== CONTENEDOR DE TARJETAS ===== */
+    .cards {
+      display: flex;
+      flex-wrap: wrap; /* Ajuste en caso de pantallas pequeñas */
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      flex: 1 1 180px; /* Mínimo ancho de tarjeta */
+      max-width: 250px; 
+      padding: 1rem;
+      text-align: center;
+      background-color: #343434;
+      border: 0px;
+      color: #fff;
+    }
+
+    .card-header {
+      display:block;
+      align-items: center;
+      margin-bottom: 1rem;
+      background-color: #343434;
+      color: #fff;
+     
+    }
+
+    /* Ícono en la parte superior de la tarjeta */
+    .card-icon {
+      font-size: 2.5rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    /* Texto pequeño “STEP X” */
+    .card-step {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #141414;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Nombre del paso */
+    .card-title {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #e0e0e0;
+      line-height: 1.2;
+      font-family: "Open Sans", serif;
+      margin-bottom: 0.8rem;
+      }
+  </style>

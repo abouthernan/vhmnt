@@ -1,0 +1,242 @@
+
+<header class="header">
+  <!-- Logo de la empresa -->
+
+  <a href="/" class="logo">
+    <img src="/src/assets/logo-vehement.webp" alt="Logo de Vehement Agency" class="logo-image" />
+  </a>
+
+  <!-- Botón menú hamburguesa -->
+  <button class="menu-button" id="menuButton">
+    <div class="line"></div>
+    <div class="line"></div>
+  </button>
+
+  <!-- Menú deslizante -->
+  <div class="menu" id="menu">
+    <button class="close-button" id="closeButton">X</button>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/desarrollo">Desarrollo</a></li>
+      <li><a href="/marketing">Marketing</a></li>
+      <li><a href="/ciberseguridad">Ciberseguridad</a></li>
+      <!--<li><a href="#servicios">Diseño</a></li>
+      <li><a href="#contacto">IA</a></li>
+      <li><a href="#contacto">SEO</a></li>-->
+    </ul>
+  </div>
+
+  <style>
+    /* Estilos generales */
+    body {
+      /*margin: 0;*/
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: #101010; /* Fondo negro siempre visible */
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      padding: 0 3.5rem; /* Ajusta aquí el padding lateral */
+      height: 60px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      height: 100%; /* Alinea el logo al centro vertical del header */
+
+    }
+
+    .logo-image {
+      height:40px; /* Ajusta la altura del logo según sea necesario */
+      width: auto; /* Mantén la proporción de la imagen */
+    }
+
+    .menu-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-button .line {
+      width: 30px;
+      height: 2px;
+      background-color: #fff; /* Color blanco para las líneas */
+      transition: transform 0.3s ease;
+    }
+
+
+    /* Hover en el botón */
+    .menu-button:hover .line {
+      background-color:#e97130; /* Color al hacer hover */
+    }
+
+    /* Animación: rotar las líneas */
+    .menu-button:hover .line:nth-child(1) {
+      transform: translateY(2px) rotate(15deg); /* Rotar la primera línea */
+    }
+
+    .menu-button:hover .line:nth-child(2) {
+      transform: translateY(-2px) rotate(-15deg); /* Rotar la segunda línea */
+    }
+
+    /* Menú completo */
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000; /* Fondo negro permanente */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-100%);
+      transition: all 0.3s ease;
+    }
+
+    .menu.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .menu ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin: 1rem 0;
+      position: relative; /* Necesario para posicionar los pseudo-elementos */
+
+    }
+
+    .menu ul li a {
+      font-size: 2rem;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      position: relative; /* Para los pseudo-elementos */
+      transition: color 0.3s ease;
+    }
+
+
+
+      /* Subrayado animado */
+      .menu ul li a::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #ffffff; /* Color del subrayado */
+      transition: width 0.3s ease;
+    }
+
+    /* Flecha grande a la derecha */
+    .menu ul li a::after {
+      content: "→"; /* Flecha grande */
+      position: absolute;
+      right: -30px;
+      opacity: 0;
+      font-size: 2rem;
+      color: #e97130; /* Color de la flecha */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Hover: subrayado y flecha visibles */
+    .menu ul li a:hover {
+      color: #ffffff;
+    }
+
+    .menu ul li a:hover::before {
+      width: 100%; /* Subrayado ocupa todo el ancho */
+    }
+
+    .menu ul li a:hover::after {
+      opacity: 1; /* Flecha aparece */
+      transform: translateX(10px); /* Se mueve ligeramente a la derecha */
+    }
+
+
+
+
+    /* Botón de cierre */
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      left: 1rem; /* Ubicación a la izquierda */
+      background: none;
+      border: none;
+      font-size: 2rem; /* Tamaño más grande */
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .close-button:hover {
+      transform: scale(1.2);
+      color: #e97130;
+    }
+
+
+
+    /* Media Queries para desktop */
+    @media (min-width: 768px) {
+      .header {
+        padding: 1.5rem 15rem;
+      }
+
+      .menu ul li a {
+
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+</header>
+
+<script>
+    const menuButton = document.getElementById('menuButton');
+  const closeButton = document.getElementById('closeButton');
+  const menu = document.getElementById('menu');
+
+  // Verificamos los elementos existen antes de agregar los eventos
+
+  if (menuButton && closeButton && menu) {
+    // Abrir el menú
+    menuButton.addEventListener('click', () => {
+      menu.classList.add('open');
+    });
+
+    // Cerrar el menú al hacer clic en el botón X
+    closeButton.addEventListener('click', () => {
+      menu.classList.remove('open');
+    });
+
+    // Cerrar el menú al hacer clic fuera del contenido
+    menu.addEventListener('click', (event) => {
+      if (event.target === menu) {
+        menu.classList.remove('open');
+      }
+    });
+  }
+
+</script>

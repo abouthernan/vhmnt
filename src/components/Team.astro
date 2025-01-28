@@ -1,0 +1,130 @@
+---
+interface TeamMember {
+  name: string
+  role: string
+  photo: string
+}
+
+// Datos de ejemplo
+const team: TeamMember[] = [
+  { name: 'John Doe', role: 'CEO', photo: '/images/john.jpg' },
+  { name: 'Jane Smith', role: 'CTO', photo: '/images/jane.jpg' },
+  { name: 'Alice Brown', role: 'Designer', photo: '/images/alice.jpg' }
+]
+---
+
+<!-- TeamSlider.astro -->
+<section class="slider-container">
+  <!-- Contenedor de slides -->
+  {team.map((member, index) => (
+    <div class={`slide ${index === 0 ? 'active' : ''}`} data-index={index}>
+      <img src={member.photo} alt={member.name} class="member-photo" />
+      <h3 class="member-name">{member.name}</h3>
+      <p class="member-role">{member.role}</p>
+    </div>
+  ))}
+
+  <!-- Controles de navegación -->
+  <button id="prevBtn" class="nav-btn">Prev</button>
+  <button id="nextBtn" class="nav-btn">Next</button>
+</section>
+
+<script client:load>
+  // Seleccionamos las slides y los botones al cargar el cliente
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    // Oculta todas las slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    // Muestra la slide actual
+    slides[index].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+    showSlide(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
+    showSlide(currentIndex);
+  });
+</script>
+
+<style>
+  .slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* Ocultamos por defecto cada slide */
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* La slide activa se muestra y es visible */
+  .slide.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .member-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+
+  .member-role {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  /* Botones de navegación */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+  }
+
+  .nav-btn:hover {
+    background-color: #f0f0f0;
+  }
+
+  #prevBtn {
+    left: 0.5rem;
+  }
+
+  #nextBtn {
+    right: 0.5rem;
+  }
+</style>

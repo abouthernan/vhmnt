@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Why from '../../components/Why.astro';
+import Tech from '../../components/Tech.astro';
+import Partners from '../../components/Partners.astro';
+
+---
+
+<Layout title="Servicios">
+  
+    <main>
+
+        <h1>Nuestros Servicios</h1>
+        <a href="/servicios/desarrollo">Desarrollo</a>
+        <a href="/servicios/marketing">Marketing</a>
+        <a href="/servicios/ciberseguridad">Ciberseguridad</a>
+
+        <Why />
+        <Tech />
+        <Partners />
+    </main>
+
+</Layout>
+
+<style>
+    main {
+     padding-top: 2rem;   
+    }
+</style>

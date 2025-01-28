@@ -1,0 +1,118 @@
+---
+// Archivo: Carousel.astro
+---
+<html lang="en">
+  <head>
+    <title>Carrousel Astro</title>
+    <link rel="stylesheet" href="/carousel.css">
+  </head>
+  <body>
+    <section class="carousel">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <img src="img/servicio-diseno-branding.png" alt="Imagen 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="img/servicio-desarrollo-web.pngg" alt="Imagen 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="img/servicio-diseno-branding.png" alt="Imagen 3">
+        </div>
+        <div class="carousel-slide">
+          <img src="img/servicio-desarrollo-web.png" alt="Imagen 4">
+        </div>
+      </div>
+      <!-- Botones de navegación -->
+      <button class="carousel-button prev">&larr;</button>
+      <button class="carousel-button next">&rarr;</button>
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <span class="indicator active" data-index="0"></span>
+        <span class="indicator" data-index="1"></span>
+        <span class="indicator" data-index="2"></span>
+        <span class="indicator" data-index="3"></span>
+      </div>
+    </section>
+    <script type="module" src=scripts/carousel.js"></script>
+  </body>
+</html>
+
+
+<style>
+        .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 10px;
+        }
+
+        .carousel-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+        min-width: 100%;
+        height: 400px;
+        }
+
+        .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        }
+
+        /* Navigation Buttons */
+        .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 50%;
+        z-index: 2;
+        }
+
+        .carousel-button.prev {
+        left: 10px;
+        }
+
+        .carousel-button.next {
+        right: 10px;
+        }
+
+        .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Indicators */
+        .carousel-indicators {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        }
+
+        .indicator {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        }
+
+        .indicator.active {
+        background-color: white;
+        }
+</style>
+
+

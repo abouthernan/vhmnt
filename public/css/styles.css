@@ -1,0 +1,429 @@
+    /* Main Hero*/
+
+    .main-hero {
+        height: 100%;
+        padding: 15% 18% 15% 18%;
+        background: radial-gradient(circle, #202020 0%, #101010 100%);
+        font-size:medium;
+        color: #ffffff;
+
+        h1 {
+            color: #ffffff;
+            font-size:3vw;
+            max-width: 50%;
+            line-height: normal;
+
+
+        }
+
+        p {
+
+        color: rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size:normal;
+        max-width: 80%;
+        font-size: medium;
+
+        }
+
+        span {
+            color: #f7f7f7;
+            font-style: italic;
+            font-family: Playfair-Display !important; 
+            font-size: 50px !important;
+        }
+     
+    }
+
+
+        /* Main Hero Services*/
+
+        .main-hero-services {
+            height: 100%;
+            padding: 15%;
+            background-color: #101010;
+            font-size:medium;
+            color: #ffffff;
+    
+            h1 {
+                color: #ffffff;
+                font-size: 42px;
+                max-width: 50%;
+                line-height: normal;
+    
+    
+            }
+    
+            p {
+    
+            color: rgb(255, 255, 255);
+            font-family: "Open Sans", serif;
+            font-size: normal;
+            max-width: 80%;
+            font-size: 16px;
+    
+            }
+    
+            span {
+                color: #f7f7f7;
+                font-style: italic;
+                font-family: Playfair-Display !important; 
+                font-size: 50px !important;
+            }
+
+            ul {
+                padding-top: 3%;
+            }
+         
+        }
+    
+    
+        /* Main About*/
+    
+        .main-about {
+            height: 100%;
+            padding: 18%;
+            background: radial-gradient(circle, #202020 0%, #101010 100%);
+            color: white;
+    
+            h1 {
+                color:white;
+                font-size: 42px;
+                max-width: 80%;
+                line-height: normal;
+                padding-bottom: 2%;
+            }
+    
+            p {
+    
+                color:#ffffff;
+                font-size:16px;
+                max-width: 100%;
+                }
+    
+            span {
+                    color: #ffffff;
+                    font-style: italic;
+                    font-family: 'Playfair-Display' !important; 
+                    font-size: 50px !important;
+                } 
+    
+    
+        }
+    
+
+
+    /* Main Tech*/
+
+    .main-tech {
+	
+        height: 100%;
+        padding: 5% 5% 10% 10%;
+		display: flex;
+		justify-content: center;
+        /**background-color:#101010;**/
+        padding-left: 10%;
+        padding-right: 10%;
+        /*background: linear-gradient(90deg, #c56cf0 0%, #101010 100%);*/
+        background: radial-gradient(circle, #202020 0%, #101010 100%);
+
+        h1 {
+            font-size: 46px;
+            font-family: Swansea;
+            margin-top: 0.25em;
+            color: rgb(255, 255, 255);
+            max-width: 100%;
+            padding-bottom: 0%;
+            padding-top: 5%;
+            text-align: center;
+        }
+     
+        p {
+            color:#bcbbbb;
+            font-size: 1rem;
+            line-height: 24px;
+            letter-spacing: -0.006em;
+            margin: 0;
+            text-align: center;
+            padding-top: 2%;
+            max-width: 100%;
+        }
+    
+        .overflow {
+                max-width: 100%;
+                overflow-x: hidden;
+                box-sizing: border-box;
+                
+            }
+    
+        .heading {
+                        font-size: 32px;
+                        font-family: Swansea;
+                        color: rgb(111, 110, 110);
+                        max-width: 100%;
+                        text-align: center;
+                    }
+        
+        
+        span {
+                color: #fff;
+                font-style: italic;
+                font-family: Playfair-Display !important; 
+                font-size: 55px !important;
+            } 
+
+	}
+
+
+
+    /* Main Partners*/
+
+    .main-partners {
+	
+        height: 100%;
+        padding: 5% 5% 5% 5%;
+		display: flex;
+		justify-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
+        background-color: #101010;
+
+
+        h1 {
+            font-size: 46px;
+            font-family: Swansea;
+            margin-top: 0.25em;
+            color: rgb(255, 255, 255);
+            max-width: 100%;
+            padding-bottom: 2%;
+            padding-top: 5%;
+            text-align: center;
+        }
+
+        span {
+            color: #f7f7f7;
+            font-style: italic;
+        }
+     
+        p {
+            color:#bcbbbb;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 5%;
+        }
+    
+        .overflow {
+                max-width: 100%;
+                overflow-x: hidden;
+                box-sizing: border-box;
+                
+            }
+    
+        .heading {
+                        font-size: 32px;
+                        font-family: Swansea;
+                        color: rgb(111, 110, 110);
+                        max-width: 100%;
+                        text-align: center;
+                    }
+
+
+	}
+    
+
+
+    /* Main Why*/
+
+    .main-why {
+        
+        height: 100%;
+        padding: 8% 18% 8% 18%;
+        background-color: #101010;
+        color: white;
+
+        body .accordion__wrapper {
+            border-top: 1px solid #6a6a6a !important;
+            background-color:rgb(255, 255, 255);
+        
+            &[open] {
+              background-color:rgb(255, 255, 255);
+            }
+          }
+
+        h1 {
+            font-family: Swansea;
+            color:white;
+            font-size: 42px;
+            max-width: 50%;
+            line-height: normal;
+            padding-bottom: 5%;
+        }
+
+        p {
+
+            color:white;
+            font-family: 'Open Sans' serif;
+            font-size: 16px;
+            max-width: 100%;
+            line-height: 1.2;
+    
+            }
+
+            span {
+                color: white;
+                font-style: italic;
+                font-family: Playfair-Display !important; 
+                font-size: 50px !important;
+            }
+        
+
+            .table {
+                padding: 2% 0% 2% 0%;
+            }
+       
+
+	}
+
+   
+
+    /* Main Works */
+
+    .main-works {
+
+        h1 {
+            font-family: Swansea;
+            color:#101010;
+            font-size: 42px;
+            max-width: 100%;
+            line-height: normal;
+            padding-bottom: 5%;
+            text-align: center;
+            padding: 8% 18% 8% 18%;
+       
+        }
+
+        p {
+
+            color:#101010;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            max-width: 80%;
+    
+            }
+
+        span {
+                color: #101010;
+                font-style: italic;
+                font-family: Playfair-Display !important; 
+                font-size: 50px !important;
+            }
+
+        .overflow {
+                max-width: 100%;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+       
+
+	}
+
+
+    /* Main Team */
+
+    .main-team {
+
+
+        h1 {
+            font-family: Swansea;
+            color:white;
+            font-size: 42px;
+            max-width: 100%;
+            line-height: normal;
+            text-align: center;
+            padding: 5% 18% 5% 18%;
+        }
+
+        span {
+            color: white;
+            font-style: italic;
+            font-family: Playfair-Display !important; 
+            font-size: 50px !important;
+        }
+
+        .table {
+            padding: 8% 28% 8% 18%;
+        }
+   
+
+	}
+
+   
+   
+
+    
+    @media screen and (max-height: 368px) {
+       
+       
+       
+        .main-hero {
+            height: 100%;
+            padding: 18%;
+            background: radial-gradient(circle, #202020 0%, #101010 100%);
+            font-size: 45px;
+            color: #ffffff;
+    
+            h1 {
+                color: #ffffff;
+                font-size: 50px;
+                max-width: 100%;
+                line-height: normal;
+    
+            }
+    
+            p {
+    
+            color: rgb(255, 255, 255);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size:normal;
+            max-width: 80%;
+            font-size: medium;
+    
+            }
+        }
+
+		
+	}
+
+    @media screen and (max-width: 768px) {
+        
+
+        .main-hero {
+            height: 100%;
+            padding: 18%;
+            background-color: #101010;
+            font-size: 45px;
+            color: #ffffff;
+    
+            h1 {
+                color: #ffffff;
+                font-size: 50px;
+                max-width: 100%;
+                line-height: normal;
+    
+            }
+    
+            p {
+    
+            color: rgb(255, 255, 255);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size:normal;
+            max-width: 80%;
+            font-size: medium;
+    
+            }
+        }
+       
+    
+    }
+    
+
