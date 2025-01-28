@@ -46,69 +46,7 @@
     
 
 
-    /* Main Tech*/
-
-    .main-tech {
-	
-        height: 100%;
-        padding: 5% 5% 10% 10%;
-		display: flex;
-		justify-content: center;
-        /**background-color:#101010;**/
-        padding-left: 10%;
-        padding-right: 10%;
-        /*background: linear-gradient(90deg, #c56cf0 0%, #101010 100%);*/
-        background: radial-gradient(circle, #202020 0%, #101010 100%);
-
-        h1 {
-            font-size: 46px;
-            font-family: Swansea;
-            margin-top: 0.25em;
-            color: rgb(255, 255, 255);
-            max-width: 100%;
-            padding-bottom: 0%;
-            padding-top: 5%;
-            text-align: center;
-        }
-     
-        p {
-            color:#bcbbbb;
-            font-size: 1rem;
-            line-height: 24px;
-            letter-spacing: -0.006em;
-            margin: 0;
-            text-align: center;
-            padding-top: 2%;
-            max-width: 100%;
-        }
-    
-        .overflow {
-                max-width: 100%;
-                overflow-x: hidden;
-                box-sizing: border-box;
-                
-            }
-    
-        .heading {
-                        font-size: 32px;
-                        font-family: Swansea;
-                        color: rgb(111, 110, 110);
-                        max-width: 100%;
-                        text-align: center;
-                    }
-        
-        
-        span {
-                color: #fff;
-                font-style: italic;
-                font-family: Playfair-Display !important; 
-                font-size: 55px !important;
-            } 
-
-	}
-
-
-
+   
    
     
 
