@@ -3,8 +3,7 @@
     <ul class="faq-list">
         <li class="faq-item">
             <button class="faq-question">
-                <span class="faq-icon">+</span>
-                <span>Experiencia</span>
+                <p class="faq-icon">+</p>Experiencia
             </button>
             <div class="faq-answer">
                 <p>
@@ -19,26 +18,67 @@
 
         <li class="faq-item">
             <button class="faq-question">
-                <span class="faq-icon">+</span>
-                ¿Cuánto tiempo tarda el proceso?
+                <p class="faq-icon">+</p>
+                Personalización
             </button>
             <div class="faq-answer">
                 <p>
-                    El tiempo varía según la complejidad del proyecto, pero
-                    generalmente toma de 2 a 4 semanas.
+                    Entendemos que cada empresa y marca tiene necesidades
+                    únicas. Por eso, creamos estrategias, diseños y desarrollo
+                    personalizados que reflejan tu escencia, conectan con tu
+                    audiencia y maximizan tu potencial en el mercado.
                 </p>
             </div>
         </li>
 
         <li class="faq-item">
             <button class="faq-question">
-                <span class="faq-icon">+</span>
-                ¿Ofrecen soporte técnico?
+                <p class="faq-icon">+</p>
+                Equipo
             </button>
             <div class="faq-answer">
                 <p>
-                    Sí, brindamos soporte técnico para garantizar el correcto
-                    funcionamiento de nuestros servicios.
+                    Somos un grupo de profesionales que aman lo que hacen.
+                    Contamos con un equipo multidisciplinar integrado por
+                    profesionales certificados en Growth, UX/UI, Producto,
+                    Automatización, Diseño, Desarrollo, Ingeniería, Marketing,
+                    Data, Análisis, Cyberseguridad, Negocios. Nuestro equipo
+                    está en constante aprendizaje absorbiendo las últimas
+                    tendencias y tecnologías para ofrecer soluciones
+                    personalizadas y de alto impacto. Nuestra fuerza está en la
+                    colaboración, pero cada miembro de la manada tiene la
+                    autonomia para liderar y ejecutar proyectos con precisión.
+                </p>
+            </div>
+        </li>
+
+        <li class="faq-item">
+            <button class="faq-question">
+                <p class="faq-icon">+</p>
+                Innovación
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Nos impulsa el desafio constante de superar expectativas.
+                    Innovamos en cada paso del proceso, exploramos nuevas
+                    oportunidades y trabajamos en conjunto para garantizar que
+                    tanto tu marca como tu proyecto se destaquen y alcancen
+                    nuevos mercados.
+                </p>
+            </div>
+        </li>
+
+        <li class="faq-item">
+            <button class="faq-question">
+                <p class="faq-icon">+</p>
+                Resultados
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Aquí no dejamos nada al azar, nos basamos en datos y
+                    métricas para que cada paso que demos tenga un impacto real
+                    en tu negocio. Nuestro objetivo es que los resultados hablen
+                    por si solos.
                 </p>
             </div>
         </li>
@@ -50,7 +90,7 @@
     .faq {
         max-width: 100%;
         margin: 4rem auto;
-        padding: 15% 18% 15% 18%;
+        padding: 8% 10% 8% 10%;
         font-size: 18px;
         color: white;
     }
@@ -69,8 +109,8 @@
     /* Pregunta */
     .faq-question {
         width: 100%;
+        height: auto;
         background: none;
-        border: none;
         font-size: 1.2rem;
         font-weight: 300;
         text-align: left;
@@ -79,11 +119,12 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        transition: 'background' 0.3s ease-in-out;
+        transition: "background" 0.3s ease-in-out;
     }
 
     .faq-question:hover {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(186, 186, 186, 0.05);
+        color: #cacaca;
     }
 
     /* Icono + */
@@ -108,12 +149,19 @@
 
     /* Clase activa cuando se abre */
     .faq-item.active .faq-answer {
-        max-height: 200px; /* Ajusta según el contenido */
+        max-height: 800px; /* Ajusta según el contenido */
         opacity: 1;
     }
 
     .faq-item.active .faq-icon {
         transform: rotate(45deg); /* Cambia el + a - */
+    }
+
+    span {
+    color: #f7f7f7;
+    font-style: italic;
+    font-family: 'Playfair-Display';
+    font-size: 50px;
     }
 
     /** Mobile Responsive */
@@ -122,8 +170,22 @@
         .faq {
             padding: 5rem 1.5rem;
         }
-    }
 
+        h1 {
+            color: #ffffff;
+            font-size: 42px;
+            text-align: center;
+            max-width: 100%;
+            line-height: normal;
+        }
+
+        p {
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            max-width: 100%;
+        }
+
+    }
 
 
 </style>
