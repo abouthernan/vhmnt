@@ -1,5 +1,5 @@
 
-<header class="header">
+<div class="header">
   <!-- Logo de la empresa -->
 
   <a href="/" class="logo">
@@ -26,13 +26,11 @@
     </ul>
   </div>
 
+</div>
+
   <style>
     /* Estilos generales */
-    body {
-      /*margin: 0;*/
-      font-family: Arial, sans-serif;
-    }
-
+  
     .header {
       position: fixed;
       top: 0;
@@ -42,9 +40,9 @@
       background-color: #101010; /* Fondo negro siempre visible */
       display: flex;
       justify-content:space-between;
-      align-items: center;
-      padding: 0 3.5rem; /* Ajusta aquí el padding lateral */
       height: 60px;
+      padding: 1.5rem 15rem; /* Ajusta aquí el padding lateral */
+    
     }
 
     .logo {
@@ -198,9 +196,10 @@
 
 
     /* Media Queries para desktop */
-    @media (min-width: 768px) {
+
+    @media (max-width: 768px) {
       .header {
-        padding: 1.5rem 15rem;
+        padding: 1.5rem 1.5rem;
       }
 
       .menu ul li a {
@@ -211,7 +210,7 @@
   </style>
 
 
-</header>
+
 
 <script>
     const menuButton = document.getElementById('menuButton');
