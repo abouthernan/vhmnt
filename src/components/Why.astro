@@ -1,10 +1,12 @@
----
-import { Accordion, AccordionItem } from "accessible-astro-components";
----
-
-
-        <Accordion>
-            <AccordionItem name="group1" title="Experiencia">
+<section class="faq">
+    <h1>Por qué trabajar <span>con nosotros</span></h1>
+    <ul class="faq-list">
+        <li class="faq-item">
+            <button class="faq-question">
+                <span class="faq-icon">+</span>
+                <span>Experiencia</span>
+            </button>
+            <div class="faq-answer">
                 <p>
                     Nuestra trayectoria está respaldada por más de una decada
                     trabajando con más de 200 empresas y startups en diversas
@@ -12,48 +14,138 @@ import { Accordion, AccordionItem } from "accessible-astro-components";
                     expandirse, adaptarse y destacar en escenarios competitivos
                     como Europa, Asia y América.
                 </p>
-            </AccordionItem>
+            </div>
+        </li>
 
-            <!-- Items in the same group will close others when opened -->
-            <AccordionItem name="group1" title="Personalización">
+        <li class="faq-item">
+            <button class="faq-question">
+                <span class="faq-icon">+</span>
+                ¿Cuánto tiempo tarda el proceso?
+            </button>
+            <div class="faq-answer">
                 <p>
-                    Entendemos que cada empresa y marca tiene necesidades
-                    únicas. Por eso, creamos estrategias, diseños y desarrollo
-                    personalizados que reflejan tu escencia, conectan con tu
-                    audiencia y maximizan tu potencial en el mercado.
+                    El tiempo varía según la complejidad del proyecto, pero
+                    generalmente toma de 2 a 4 semanas.
                 </p>
-            </AccordionItem>
-            <AccordionItem name="group1" title="Equipo">
+            </div>
+        </li>
+
+        <li class="faq-item">
+            <button class="faq-question">
+                <span class="faq-icon">+</span>
+                ¿Ofrecen soporte técnico?
+            </button>
+            <div class="faq-answer">
                 <p>
-                    Somos un grupo de profesionales que aman lo que hacen.
-                    Contamos con un equipo multidisciplinar integrado por
-                    profesionales certificados en Growth, UX/UI, Producto,
-                    Automatización, Diseño, Desarrollo, Ingeniería, Marketing,
-                    Data, Análisis, Cyberseguridad, Negocios. Nuestro equipo
-                    está en constante aprendizaje absorbiendo las últimas
-                    tendencias y tecnologías para ofrecer soluciones
-                    personalizadas y de alto impacto. Nuestra fuerza está en la
-                    colaboración, pero cada miembro de la manada tiene la
-                    autonomia para liderar y ejecutar proyectos con precisión.
+                    Sí, brindamos soporte técnico para garantizar el correcto
+                    funcionamiento de nuestros servicios.
                 </p>
-            </AccordionItem>
-            <AccordionItem name="group1" title="Innovación">
-                <p>
-                    Nos impulsa el desafio constante de superar expectativas.
-                    Innovamos en cada paso del proceso, exploramos nuevas
-                    oportunidades y trabajamos en conjunto para garantizar que
-                    tanto tu marca como tu proyecto se destaquen y alcancen
-                    nuevos mercados.
-                </p>
-            </AccordionItem>
-            <AccordionItem name="group1" title="Resultados">
-                <p>
-                    Aquí no dejamos nada al azar, nos basamos en datos y
-                    métricas para que cada paso que demos tenga un impacto real
-                    en tu negocio. Nuestro objetivo es que los resultados hablen
-                    por si solos.
-                </p>
-            </AccordionItem>
-        </Accordion>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<style>
+    /* Estilos generales */
+    .faq {
+        max-width: 100%;
+        margin: 4rem auto;
+        padding: 15% 18% 15% 18%;
+        font-size: 18px;
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 2rem 2rem;
+        font-size: 42px;
+    }
+
+    .faq-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Pregunta */
+    .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-align: left;
+        vertical-align: middle;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 'background' 0.3s ease-in-out;
+    }
+
+    .faq-question:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Icono + */
+    .faq-icon {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-right: 10px;
+        margin-bottom: 0.3rem;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    /* Respuesta */
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0 1rem;
+        transition:
+            max-height 0.3s ease-in-out,
+            opacity 0.2s ease-in-out;
+    }
+
+    /* Clase activa cuando se abre */
+    .faq-item.active .faq-answer {
+        max-height: 200px; /* Ajusta según el contenido */
+        opacity: 1;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg); /* Cambia el + a - */
+    }
+
+    /** Mobile Responsive */
+
+    @media screen and (max-width: 768px) {
+        .faq {
+            padding: 5rem 1.5rem;
+        }
+    }
 
 
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+            const question = item.querySelector(".faq-question");
+
+            question.addEventListener("click", function () {
+                // Cierra todas las preguntas antes de abrir otra (si solo quieres una abierta a la vez)
+                faqItems.forEach((el) => {
+                    if (el !== item) {
+                        el.classList.remove("active");
+                    }
+                });
+
+                // Alternar el estado abierto/cerrado
+                item.classList.toggle("active");
+            });
+        });
+    });
+</script>
