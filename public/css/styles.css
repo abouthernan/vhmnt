@@ -1,6 +1,5 @@
   
-
-        /* Main Hero Services*/
+/* Main Hero Services*/
 
         .main-hero-services {
             height: 100%;
@@ -42,68 +41,6 @@
         }
     
     
-      
-    
-
-
-   
-   
-    
-
-
-    /* Main Why*/
-
-    .main-why {
-        
-        height: 100%;
-        padding: 8% 18% 8% 18%;
-        background-color: #101010;
-        color: white;
-
-        body .accordion__wrapper {
-            border-top: 1px solid #6a6a6a !important;
-            background-color:rgb(255, 255, 255);
-        
-            &[open] {
-              background-color:rgb(255, 255, 255);
-            }
-          }
-
-        h1 {
-            font-family: Swansea;
-            color:white;
-            font-size: 42px;
-            max-width: 50%;
-            line-height: normal;
-            padding-bottom: 5%;
-        }
-
-        p {
-
-            color:white;
-            font-family: 'Open Sans' serif;
-            font-size: 16px;
-            max-width: 100%;
-            line-height: 1.2;
-    
-            }
-
-            span {
-                color: white;
-                font-style: italic;
-                font-family: Playfair-Display !important; 
-                font-size: 50px !important;
-            }
-        
-
-            .table {
-                padding: 2% 0% 2% 0%;
-            }
-       
-
-	}
-
-   
 
     /* Main Works */
 

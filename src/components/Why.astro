@@ -1,57 +1,139 @@
 ---
-import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Accordion, AccordionItem } from "accessible-astro-components";
 ---
 
-<div>
-    <main class="main-why">
-        <section>
-            <h1>Por qué <span>trabajar juntos</span></h1>
-            <div class="table">
-                <Accordion>
-                    <AccordionItem
-                    name="group1"
-                    title="Experiencia"
-                    >
-                    <p>Nuestra trayectoria está respaldada por más de una decada trabajando con más de 200 empresas y startups en diversas industrias y mercados globales. Hemos ayudado marcas a expandirse, adaptarse y destacar en escenarios competitivos como Europa, Asia y América.</p>
-                    
-                    </AccordionItem>
-                    
-                    <!-- Items in the same group will close others when opened -->
-                    <AccordionItem
-                    name="group1"
-                    title="Personalización"
-                    >
-                    <p>Entendemos que cada empresa y marca tiene necesidades únicas. Por eso, creamos estrategias, diseños y desarrollo personalizados que reflejan tu escencia, conectan con tu audiencia y maximizan tu potencial en el mercado. </p>
-                    
-                    
-                    </AccordionItem>
-                    <AccordionItem
-                    name="group1"
-                    title="Equipo"
-                    >
-                    <p>Somos un grupo de profesionales que aman lo que hacen. Contamos con un equipo multidisciplinar integrado por profesionales certificados en Growth, UX/UI, Producto, Automatización, Diseño, Desarrollo, Ingeniería, Marketing, Data, Análisis, Cyberseguridad, Negocios. Nuestro equipo está en constante aprendizaje absorbiendo las últimas tendencias y tecnologías para ofrecer soluciones personalizadas y de alto impacto. Nuestra fuerza está en la colaboración, pero cada miembro de la manada tiene la autonomia para liderar y ejecutar proyectos con precisión. </p>
-                    
-                    </AccordionItem>
-                    <AccordionItem
-                    name="group1"
-                    title="Innovación"
-                    >
-                    <p>Nos impulsa el desafio constante de superar expectativas. Innovamos en cada paso del proceso, exploramos nuevas oportunidades y trabajamos en conjunto para garantizar que tanto tu marca como tu proyecto se destaquen y alcancen nuevos mercados. </p>
-                    
-                    </AccordionItem>
-                    <AccordionItem
-                    name="group1"
-                    title="Resultados"
-                    >
-                    <p>Aquí no dejamos nada al azar, nos basamos en datos y métricas para que cada paso que demos tenga un impacto real en tu negocio. Nuestro objetivo es que los resultados hablen por si solos. </p>
-                    
+<div class="main-why">
+    <h1>Por qué <span>trabajar juntos</span></h1>
+    <div class="table">
+        <Accordion>
+            <AccordionItem name="group1" title="Experiencia">
+                <p>
+                    Nuestra trayectoria está respaldada por más de una decada
+                    trabajando con más de 200 empresas y startups en diversas
+                    industrias y mercados globales. Hemos ayudado marcas a
+                    expandirse, adaptarse y destacar en escenarios competitivos
+                    como Europa, Asia y América.
+                </p>
+            </AccordionItem>
 
-
-                    </AccordionItem>
-                </Accordion>
-            </div>
-        </section>
-        
-    </main>
+            <!-- Items in the same group will close others when opened -->
+            <AccordionItem name="group1" title="Personalización">
+                <p>
+                    Entendemos que cada empresa y marca tiene necesidades
+                    únicas. Por eso, creamos estrategias, diseños y desarrollo
+                    personalizados que reflejan tu escencia, conectan con tu
+                    audiencia y maximizan tu potencial en el mercado.
+                </p>
+            </AccordionItem>
+            <AccordionItem name="group1" title="Equipo">
+                <p>
+                    Somos un grupo de profesionales que aman lo que hacen.
+                    Contamos con un equipo multidisciplinar integrado por
+                    profesionales certificados en Growth, UX/UI, Producto,
+                    Automatización, Diseño, Desarrollo, Ingeniería, Marketing,
+                    Data, Análisis, Cyberseguridad, Negocios. Nuestro equipo
+                    está en constante aprendizaje absorbiendo las últimas
+                    tendencias y tecnologías para ofrecer soluciones
+                    personalizadas y de alto impacto. Nuestra fuerza está en la
+                    colaboración, pero cada miembro de la manada tiene la
+                    autonomia para liderar y ejecutar proyectos con precisión.
+                </p>
+            </AccordionItem>
+            <AccordionItem name="group1" title="Innovación">
+                <p>
+                    Nos impulsa el desafio constante de superar expectativas.
+                    Innovamos en cada paso del proceso, exploramos nuevas
+                    oportunidades y trabajamos en conjunto para garantizar que
+                    tanto tu marca como tu proyecto se destaquen y alcancen
+                    nuevos mercados.
+                </p>
+            </AccordionItem>
+            <AccordionItem name="group1" title="Resultados">
+                <p>
+                    Aquí no dejamos nada al azar, nos basamos en datos y
+                    métricas para que cada paso que demos tenga un impacto real
+                    en tu negocio. Nuestro objetivo es que los resultados hablen
+                    por si solos.
+                </p>
+            </AccordionItem>
+        </Accordion>
+    </div>
 </div>
 
+<style>
+    body .accordion__wrapper {
+        border-top: 1px solid #6a6a6a !important;
+        background-color: rgb(255, 255, 255);
+
+        &[open] {
+            background-color: rgb(255, 255, 255);
+        }
+    }
+
+    .main-why {
+        height: 100%;
+        max-width: 100%;
+        padding: 15% 18% 15% 18%;
+        background: radial-gradient(circle, #202020 0%, #101010 100%);
+        color: white;
+    }
+
+    h1 {
+        color: white;
+        font-size: 42px;
+        max-width: 80%;
+        line-height: 0.6;
+        padding-bottom: 2%;
+    }
+
+    p {
+        color: #ffffff;
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    span {
+        color: #ffffff;
+        font-style: italic;
+        font-family: "Playfair-Display" !important;
+        font-size: 42px;
+    }
+
+    .table {
+        padding: 2% 0% 2% 0%;
+    }
+
+
+
+    /** Mobile Responsive */
+
+    @media screen and (max-width: 768px) {
+        
+                .main-why {
+                    height: 100%;
+                    max-width: 100%;
+                    padding: 8rem 1.5rem;
+                    background-color: #101010;
+                    font-size: 42px;
+                    color: #ffffff;
+                }
+
+                h1 {
+                    color: #ffffff;
+                    font-size: 42px;
+                    max-width: 100%;
+                    padding: 3%;
+                    text-align: center;
+                    line-height: 1;
+                }
+
+                p {
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                    max-width: 100%;
+                    text-align: left;
+                    padding-top: 2%;
+                }
+            }
+
+   </style>
