@@ -15,7 +15,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 5rem 0rem;
+      padding: 2rem 0rem;
       text-align: center;
       background: linear-gradient(90deg, #c56cf0 0%, #63cdda 100%);
       border-radius: 1rem;
@@ -55,7 +55,7 @@
 
 
 
-        }
+     }
 
         p {
 
@@ -72,8 +72,35 @@
             color: #101010;
             font-style: italic;
             font-family: Playfair-Display !important; 
-            font-size: 50px !important;
+            font-size: 50px ;
         }
+
+
+
+        @media screen and (max-height: 368px) {
+
+          h1, span {
+            font-size: 36px;
+            max-width: 100%;
+            padding-bottom: 20px;
+          }
+
+
+
+        }
+
+
+      @media screen and (max-width: 768px) {
+
+        h1, span {
+            font-size: 36px;
+            max-width: 90%;
+            padding-bottom: 20px;
+          }
+
+
+      }
+
 
 
   </style>
