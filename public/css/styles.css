@@ -1,45 +1,4 @@
-  
-/* Main Hero Services*/
 
-        .main-hero-services {
-            height: 100%;
-            padding: 15%;
-            background-color: #101010;
-            font-size:medium;
-            color: #ffffff;
-    
-            h1 {
-                color: #ffffff;
-                font-size: 42px;
-                max-width: 50%;
-                line-height: normal;
-    
-    
-            }
-    
-            p {
-    
-            color: rgb(255, 255, 255);
-            font-family: "Open Sans", serif;
-            font-size: normal;
-            max-width: 80%;
-            font-size: 16px;
-    
-            }
-    
-            span {
-                color: #f7f7f7;
-                font-style: italic;
-                font-family: Playfair-Display !important; 
-                font-size: 50px !important;
-            }
-
-            ul {
-                padding-top: 3%;
-            }
-         
-        }
-    
     
 
     

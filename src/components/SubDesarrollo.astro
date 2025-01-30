@@ -1,30 +1,25 @@
 <div class="main-sub">
-  <div class="main-hero-services">
-    <h1>¿Qué servicio <span>necesitas?</span></h1>
+    <h1>¿Qué necesitas <span>crear?</span></h1>
     <ul class="three-column-list">
-      <li>Consultoría en Ciberseguridad</li>
-      <li>Aseguramiento Informático</li>
-      <li>Aseguramiento Permitetral</li>
-      <li>Hacking Ético</li>
-      <li>Informática Forense</li>
-      <li>SGS Sistemas de Gestión de Seguridad</li>
-      <li>WPT</li>
-      <li>Seguridad de la gestión de riesgos</li>
-      <li>BCP</li>
+      <li>Landingpage</li>
+      <li>Onepage</li>
+      <li>Minisites</li>
+      <li>Web Aplication</li>
+      <li>Mobile App</li>
+      <li>Dashboard</li>
+      <li>Website</li>
+      <li>Tiendas Online</li>
+      <li>MVP</li>
     </ul>
-  </div>
 </div>
 
 <style>
-  .main-sub {
-    background-color: #101010;
-    padding: 5% 15%;
-  }
-
-  .main-hero-services {
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 0rem;
+  .main-sub{
+    height: 100%;
+    max-width: 100%;
+    padding: 15% 18% 15% 18%;
+    background: radial-gradient(circle, #202020 0%, #101010 100%);
+    color: white;
   }
 
   h1 {
@@ -57,13 +52,14 @@
   }
 
   .three-column-list li {
-    background-color: rgb(35, 34, 34);
+    background-color:rgb(35, 34, 34);
     color: #fff;
     padding: 20px;
     text-align: center;
     border-radius: 4px;
     border-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
   }
 
   /* Responsividad */
@@ -80,16 +76,16 @@
   }
 
   @media screen and (max-width: 768px) {
-    .main-sub {
-      padding: 4rem 1.5rem;
-    }
+  .main-sub{
+    padding: 4rem 1.5rem;
+  }
 
-    .three-column-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .three-column-list li {
+  .three-column-list li {
       font-size: 1rem;
+    }
+
+  .three-column-list {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     h1 {
@@ -103,7 +99,7 @@
 
     p {
       color: rgb(255, 255, 255);
-      font-size: 1rem;
+      font-size: 18px;
       max-width: 100%;
       text-align: center;
       padding-top: 2%;
@@ -112,5 +108,6 @@
     span {
       font-size: 42px;
     }
+
   }
 </style>

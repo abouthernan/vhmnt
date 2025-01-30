@@ -25,9 +25,25 @@
     }
   
     h1 {
-      text-align: left;
-      margin-bottom: 1rem;
-    }
+    color: white;
+    font-size: 42px;
+    max-width: 80%;
+    line-height: 0.6;
+    padding-bottom: 2%;
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  span {
+    color: #ffffff;
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 42px;
+  }
   
     .three-column-list {
       display: grid;
@@ -48,17 +64,54 @@
     
     }
   
-    /* Responsividad */
-    @media (min-width: 640px) {
-      .three-column-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
+   /* Responsividad */
+   @media (min-width: 640px) {
+    .three-column-list {
+      grid-template-columns: repeat(2, 1fr);
     }
-  
-    @media (min-width: 1024px) {
-      .three-column-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
+  }
+
+  @media (min-width: 1024px) {
+    .three-column-list {
+      grid-template-columns: repeat(3, 1fr);
     }
-  </style>
-  
+  }
+
+  @media screen and (max-width: 768px) {
+  .main-sub{
+    padding: 4rem 1.5rem;
+  }
+
+  .three-column-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-column-list li {
+      font-size: 1rem;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 42px;
+      max-width: 100%;
+      padding: 3%;
+      text-align: center;
+      line-height: normal;
+    }
+
+    p {
+      color: rgb(255, 255, 255);
+      font-size: 18px;
+      max-width: 100%;
+      text-align: center;
+      padding-top: 2%;
+    }
+
+    span {
+      font-size: 42px;
+    }
+
+  }
+</style>
+
+ 
