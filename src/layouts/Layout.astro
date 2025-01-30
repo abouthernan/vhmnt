@@ -8,6 +8,30 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+
+declare global {
+    interface Window {
+        dataLayer: any[];
+    }
+    function gtag(...args: any[]): void;
+}
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag_report_conversion(url: string): boolean {
+    const callback = function () {
+        if (typeof url !== "undefined") {
+            window.location.href = url;
+        }
+    };
+    gtag("event", "conversion", {
+        send_to: "AW-959144469/YBbTCM7crJcaEJXErckD",
+        event_callback: callback,
+    });
+    return false;
+}
+
 ---
 
 <!doctype html>
