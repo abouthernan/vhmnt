@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
 ---
 
 <!doctype html>
@@ -79,10 +78,10 @@ const { title } = Astro.props;
 		<!-- Event snippet for Botón de WhatsApp conversion page
 		In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 		<script>
-			function gtag_report_conversion(url) {
-				var callback = function () {
-					if (typeof url != "undefined") {
-						window.location = url;
+			function gtag_report_conversion(url: string): boolean {
+				const callback = function () {
+					if (typeof url !== "undefined") {
+						window.location.href = url;
 					}
 				};
 				gtag("event", "conversion", {
