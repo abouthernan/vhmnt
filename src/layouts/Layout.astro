@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Tags from "../components/Tags.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 
 interface Props {
@@ -62,35 +63,7 @@ const { title } = Astro.props;
 		<script is:inline src="/scripts/vlt-helpers.js" defer></script>
 		<script is:inline src="/scripts/vlt-controllers.min.js" defer></script>
 		<script src="/scripts/menu.js" defer></script>
-
-		<!--Google Analytics -->
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-
-			gtag("config", "AW-959144469");
-		</script>
-
-		<!--Whastsapp Tag Conversation -->
-		<!-- Event snippet for Botón de WhatsApp conversion page
-		In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-		<script>
-			function gtag_report_conversion(url: string): boolean {
-				const callback = function () {
-					if (typeof url !== "undefined") {
-						window.location.href = url;
-					}
-				};
-				gtag("event", "conversion", {
-					send_to: "AW-959144469/YBbTCM7crJcaEJXErckD",
-					event_callback: callback,
-				});
-				return false;
-			}
-		</script>
+		<Tags />
 	</head>
 
 	<Header />

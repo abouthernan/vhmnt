@@ -171,3 +171,6 @@ declare module 'astro:content' {
 
 	export type ContentConfig = typeof import("../src/content/config.js");
 }
+
+
+
