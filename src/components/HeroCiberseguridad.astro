@@ -1,63 +1,80 @@
 <div class="main-hero-services">
-  <h1>Ayudamos a la empresas de LATAM a proteger sus<span class="">/ activos digitales</span></h1>
+  <h1 class="gradient-heading">Protege tus<span class="gradient-accent"> activos digitales</span></h1>
   <p>
-    Protegemos tu negocio de amenazas digitales con soluciones de seguridad
-    personalizadas. Tecnología de vanguardia y expertos dedicados para
-    salvaguardar tus datos y reputación. Operarás con total tranquilidad en un
-    entorno en línea confiable.
+    Protegemos tu negocio de amenazas digitales con soluciones de seguridad<br/>
+    personalizadas. Tecnología de vanguardia y expertos dedicados para<br/>
+    salvaguardar tus datos y reputación.
   </p>
+  <!-- Call to Action -->
+<div class="cta-container">
+  <a href="https://api.whatsapp.com/send/?phone=%2B573133846633&text&type=phone_number&app_absent=0" class="cta-gradient">
+    <svg class="cta-icon" viewBox="0 0 24 24">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+    </svg>
+    Solicita una Auditoría Gratuita
+  </a>
+</div>
 </div>
 
 <style>
-  /* Main Hero Ciberseguridad*/
-
   .main-hero-services {
+    /* Tus estilos existentes */
+    position: relative;
     height: 100%;
     max-width: 100%;
     padding: 15% 18% 15% 18%;
-    background: radial-gradient(circle, #202020 0%, #101010 100%);
+background: radial-gradient(circle at 30% 20%, #1d1d1e 0%, #0c0c0c 80%);
+  animation: breathe-gradient 8s ease-in-out infinite;
     color: white;
   }
 
-  h1 {
-    color: white;
+  .gradient-heading {
     font-size: 42px;
+    font-weight: 700;
     max-width: 80%;
     line-height: 1.3;
     padding-bottom: 2%;
+    margin: 0;
+    
+    /* Gradiente moderno */
+    background: linear-gradient(135deg, #00f5ff, #00ff88, #0080ff);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Animación sutil */
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 52px;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+
+  /* Efecto de glow opcional */
+  .gradient-heading.with-glow {
+    filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
   }
 
   p {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 18px;
     max-width: 100%;
   }
 
-  span {
-    color: #ffffff;
-    font-style: italic;
-    font-family: "Playfair-Display" !important;
-    font-size: 42px;
-  }
-
-  ul {
-    padding-top: 3%;
-  }
-
-  /** Mobile Responsive */
-
+  /* Mobile Responsive */
   @media screen and (max-width: 768px) {
-    .main-hero-services {
-      height: 100%;
-      max-width: 100%;
-      padding: 8rem 1.5rem;
-      background-color: #101010;
-      font-size: 42px;
-      color: #ffffff;
-    }
-
-    h1 {
-      color: #ffffff;
+    .gradient-heading {
       font-size: 42px;
       max-width: 100%;
       padding: 3%;
@@ -65,81 +82,84 @@
       line-height: normal;
     }
 
+    .gradient-accent {
+      font-size: 42px;
+    }
+
     p {
-      color: rgb(255, 255, 255);
       font-size: 18px;
       max-width: 100%;
       text-align: center;
       padding-top: 2%;
     }
-
-    span {
-      font-size: 42px;
-    }
   }
 
-  .space-background {
-    position: relative;
-    width: 100%;
-    height: 600px; /* O ajusta según necesites */
-    background: radial-gradient(
-      circle,
-      #000428,
-      #1c1b1b
-    ); /* Degradado espacial */
-    overflow: hidden;
-    padding: 18%;
-    color: #fff;
+
+  /* CTA Styles */
+.cta-container {
+  margin-top: 2.5rem;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+}
+
+.cta-gradient {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #00f5ff, #00ff88);
+  color: #000;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-gradient:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 245, 255, 0.4);
+}
+
+.cta-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cta-gradient:hover::before {
+  left: 100%;
+}
+
+.cta-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Mobile CTA */
+@media screen and (max-width: 768px) {
+  .cta-container {
+    margin-top: 1.5rem;
+    text-align: center;
   }
 
-  /* Estrellas pequeñas */
-  .space-background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background:
-      radial-gradient(2px, rgba(255, 255, 255, 0.8), transparent) 0 0,
-      radial-gradient(2px, rgba(255, 255, 255, 0.6), transparent) 50px 50px;
-    background-size: 100px 100px;
-    animation: move-stars 30s linear infinite;
-    opacity: 0.7;
+  .cta-gradient {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
+}
 
-  /* Estrellas grandes */
-  .space-background::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background:
-      radial-gradient(3px, rgba(255, 255, 255, 0.9), transparent) 0 0,
-      radial-gradient(3px, rgba(255, 255, 255, 0.7), transparent) 100px 100px;
-    background-size: 150px 150px;
-    animation: move-stars 3s linear infinite;
-    opacity: 0.8;
-  }
 
-  /* Animación para mover las estrellas */
-  @keyframes move-stars {
-    from {
-      transform: translate(0, 0);
-    }
-    to {
-      transform: translate(-50px, -50px);
-    }
-  }
 
-  /* Contenido dentro del componente */
-  .space-background h1 {
-    position: relative;
-    color: #fff;
-    font-size: 3rem;
-    text-align: left;
-    transform: translateY(-50%);
-  }
 </style>
