@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners Section</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #101010;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .partners-section {
+            background:#0c0c0c;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .partners-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .partners-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .partners-title h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00f5ff, #00ff88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .partners-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Contenedor del carrusel */
+        .partners-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Fade effects a los lados */
+        .partners-carousel::before,
+        .partners-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .partners-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+        }
+
+        .partners-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+        }
+
+        /* Track que se mueve */
+        .partners-track {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            animation: scroll-partners 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        /* Pausar animación al hover */
+        .partners-carousel:hover .partners-track {
+            animation-play-state: paused;
+        }
+
+        /* Items de los partners */
+        .partner-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .partner-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Logos de partners */
+        .partner-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0.7) grayscale(1);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-item:hover .partner-logo {
+            filter: brightness(1) grayscale(0);
+        }
+
+        /* Para logos de texto/SVG */
+        .partner-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s ease;
+        }
+
+        .partner-item:hover .partner-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Animación de scroll */
+        @keyframes scroll-partners {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .partners-section {
+                padding: 3rem 0;
+            }
+
+            .partners-container {
+                padding: 0 1rem;
+            }
+
+            .partners-title h2 {
+                font-size: 2rem;
+            }
+
+            .partners-subtitle {
+                font-size: 1rem;
+            }
+
+            .partners-carousel {
+                height: 100px;
+            }
+
+            .partners-carousel::before,
+            .partners-carousel::after {
+                width: 60px;
+            }
+
+            .partner-item {
+                width: 140px;
+                height: 70px;
+                padding: 0.8rem;
+            }
+
+            .partners-track {
+                gap: 3rem;
+                animation-duration: 25s;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .partners-carousel::before,
+            .partners-carousel::after {
+                width: 40px;
+            }
+
+            .partner-item {
+                width: 120px;
+                height: 60px;
+                padding: 0.6rem;
+            }
+
+            .partners-track {
+                gap: 2rem;
+                animation-duration: 20s;
+            }
+        }
+
+        /* Versión alternativa con doble fila */
+        .partners-double {
+            height: 240px;
+        }
+
+        .partners-track-double {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .partners-row {
+            display: flex;
+            gap: 4rem;
+            animation: scroll-partners 25s linear infinite;
+        }
+
+        .partners-row:nth-child(2) {
+            animation-direction: reverse;
+            animation-duration: 35s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Versión Simple -->
+    <section class="partners-section">
+        <div class="partners-container">
+           <!-- <div class="partners-title">
+                <h2>Nuestros Partners</h2>
+                <p class="partners-subtitle">
+                    Trabajamos con las mejores empresas tecnológicas para ofrecerte 
+                    soluciones de ciberseguridad de clase mundial.
+                </p>
+            </div> -->
+            
+            <div class="partners-carousel">
+                <div class="partners-track">
+                    <!-- Primer set de partners -->
+                    <div class="partner-item">
+                        <div class="partner-text">Microsoft</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">AWS</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Google Cloud</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Cisco</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">IBM</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Oracle</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">VMware</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Huawei</div>
+                    </div>
+                    
+                    <!-- Segundo set idéntico para loop infinito -->
+                    <div class="partner-item">
+                        <div class="partner-text">Microsoft</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">AWS</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Google Cloud</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Cisco</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">IBM</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Oracle</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">VMware</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-text">Huawei</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</body>
+</html>

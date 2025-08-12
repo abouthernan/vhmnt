@@ -1,0 +1,90 @@
+<div class="stats-section">
+  <div class="stats-container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">150+</span>
+        <div class="stat-label">Empresas Protegidas</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">99.9%</span>
+        <div class="stat-label">Uptime Garantizado</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <div class="stat-label">Monitoreo Continuo</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5 años</span>
+        <div class="stat-label">Experiencia Promedio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .stats-section {
+    background-color: #0a0a0f;
+    padding: 4rem 0;
+  }
+
+  .stats-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .stat-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 255, 136, 0.3);
+    transform: translateY(-3px);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00ff88;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .stats-container {
+      padding: 0 2rem;
+    }
+    
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

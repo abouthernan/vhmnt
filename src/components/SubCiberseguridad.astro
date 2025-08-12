@@ -1,6 +1,13 @@
 <div class="main-sub">
   <div class="main-hero-services">
-    <h1>¿Qué servicio <span>necesitas?</span></h1>
+   
+    <div class="partners-title">
+                <h2>Somos <span>Expertos en...</span></h2>
+                <p class="partners-subtitle">
+                    Trabajamos con las mejores empresas tecnológicas para ofrecerte 
+                    soluciones de ciberseguridad de clase mundial.
+                </p>
+            </div>
     
     <div class="carousel-container">
       <button class="nav-button prev" data-direction="-1">‹</button>
@@ -111,7 +118,7 @@
 
 
 .main-sub {
-  background: radial-gradient(circle at 50% 50%, #1d1d1e 20%, #0c0c0c 50%);
+  background: radial-gradient(circle at 50% 50%, #1d1d1e 20%, #0c0c0c 40%);
   animation: breathe-gradient 8s ease-in-out infinite;
   padding: 5% 0;
 }
@@ -121,6 +128,32 @@
   max-width: 1400px;
   padding: 0 4rem;
 }
+
+ .partners-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .partners-title h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00f5ff, #00ff88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .partners-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+
 
 h1 {
   color: white;
