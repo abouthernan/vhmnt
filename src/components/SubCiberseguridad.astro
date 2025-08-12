@@ -1,13 +1,10 @@
-<div class="main-sub">
-  <div class="main-hero-services">
+<section class="what-section">
+  <div class="what-container">
    
     <div class="partners-title">
-                <h2>Somos <span>Expertos en...</span></h2>
-                <p class="partners-subtitle">
-                    Trabajamos con las mejores empresas tecnológicas para ofrecerte 
-                    soluciones de ciberseguridad de clase mundial.
-                </p>
-            </div>
+                
+                    <h1>Somos expertos en...</h1>
+    </div>
     
     <div class="carousel-container">
       <button class="nav-button prev" data-direction="-1">‹</button>
@@ -116,6 +113,40 @@
 <style>
 
 
+ .what-section {
+            background:#0c0c0c;
+            overflow: hidden;
+            padding: 2% 12% 2% 12%;
+        }
+
+ .what-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 0rem;
+        }
+
+
+.gradient-heading {
+    font-size: 3.2rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1.2;
+    padding-bottom: 2%;
+    margin: 0;
+    color: #ffffff;
+    
+    /* Gradiente moderno 
+    background: linear-gradient(135deg, #00f5ff, #00ff88, #0080ff);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+    
+    /* Animación sutil */
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+
+
 
 .main-sub {
   background: radial-gradient(circle at 50% 50%, #1d1d1e 20%, #0c0c0c 40%);
@@ -148,9 +179,9 @@
         .partners-subtitle {
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 150vh;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.3;
         }
 
 

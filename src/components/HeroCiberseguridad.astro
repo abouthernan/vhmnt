@@ -1,38 +1,49 @@
-<div class="main-hero-services">
-  <h1 class="gradient-heading">Protege tus<span class="gradient-accent"> activos digitales</span></h1>
-  <p>
-    Protegemos tu negocio de amenazas digitales con soluciones de seguridad<br/>
-    personalizadas. Tecnología de vanguardia y expertos dedicados para<br/>
-    salvaguardar tus datos y reputación.
-  </p>
-  <!-- Call to Action -->
-<div class="cta-container">
-  <a href="https://api.whatsapp.com/send/?phone=%2B573133846633&text&type=phone_number&app_absent=0" class="cta-gradient">
-    <svg class="cta-icon" viewBox="0 0 24 24">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-    </svg>
-    Solicita una Auditoría Gratuita
-  </a>
-</div>
-</div>
+<section class="hero-section">
+  <div class="hero-container">
+      <h1 class="gradient-heading">Protegemos el activo más<br /> importante de tu empresa,<br /><span class="gradient-accent"> la información.</span></h1>
+      <!-- <p>
+        Protegemos tu negocio de amenazas digitales con soluciones de seguridad<br/>
+        personalizadas. Tecnología de vanguardia y expertos dedicados para<br/>
+        salvaguardar tus datos y reputación.-->
+      </p>
+      <!-- Call to Action -->
+    <div class="cta-container">
+      <a href="https://api.whatsapp.com/send/?phone=%2B573133846633&text&type=phone_number&app_absent=0" class="cta-gradient">
+        <svg class="cta-icon" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        Solicita una Auditoría Gratuita
+      </a>
+    </div>
+  </div>
+</section>
 
 <style>
-  .main-hero-services {
-    /* Tus estilos existentes */
-    position: relative;
-    height: 80%;
-    max-width: 100%;
-    padding: 15% 18% 15% 18%;
-    background: radial-gradient(circle at 30% 20%, #1d1d1e 0%, #0c0c0c 50%);
-    animation: breathe-gradient 8s ease-in-out infinite;
-    color: white;
-  }
+
+
+  .hero-section {
+            background:#0c0c0c;
+            overflow: hidden;
+            padding: 10% 18% 5% 18%;
+            position: relative;
+            max-width: 100%;
+            background: radial-gradient(circle at 30% 20%, #1d1d1e 0%, #0c0c0c 50%);
+            animation: breathe-gradient 8s ease-in-out infinite;
+            color: white;
+        }
+
+  .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+  
 
   .gradient-heading {
-    font-size: 42px;
-    font-weight: 700;
-    max-width: 80%;
-    line-height: 1.3;
+    font-size: 3.2rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1.2;
     padding-bottom: 2%;
     margin: 0;
     color: #ffffff;
@@ -51,7 +62,7 @@
   .gradient-accent {
     font-style: italic;
     font-family: "Playfair-Display" !important;
-    font-size: 52px;
+    font-size: 1.2em;
     
     /* Gradiente complementario para el span */
     background: linear-gradient(135deg, #00ff88, #00f5ff);
@@ -76,7 +87,7 @@
   /* Mobile Responsive */
   @media screen and (max-width: 768px) {
     .gradient-heading {
-      font-size: 42px;
+      font-size: 2em;
       max-width: 100%;
       padding: 3%;
       text-align: center;
@@ -84,7 +95,7 @@
     }
 
     .gradient-accent {
-      font-size: 42px;
+      font-size: 1.2em;
     }
 
     p {
@@ -101,7 +112,7 @@
   margin-top: 2.5rem;
   text-align: left;
   position: relative;
-  z-index: 10;
+  z-index: 5;
 }
 
 .cta-gradient {

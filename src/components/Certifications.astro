@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificaciones Section</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #101010;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .section {
+            background-color: #0a0a0f;
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+         .certifications-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .certificacions-title h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00f5ff, #00ff88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+                h1 {
+        color: white;
+        font-size: 42px;
+        line-height: 1.2;
+        padding-bottom: 2rem;
+        text-align: center;
+        margin: 0 auto;
+        }
+
+        .section-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #00f5ff, #00ff88);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Contenedor principal de certificaciones */
+        .certifications-wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        /* Fade effects a los lados */
+        .certifications-wrapper::before,
+        .certifications-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .certifications-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+        }
+
+        .certifications-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+        }
+
+        /* Filas de certificaciones */
+        .certifications-row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            white-space: nowrap;
+            width: fit-content;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Animaciones por fila - 120s con loop perfecto */
+        .certifications-row:nth-child(1) {
+            animation: scroll-right-loop 300s linear infinite;
+        }
+
+        .certifications-row:nth-child(2) {
+            animation: scroll-left-loop 300s linear infinite;
+        }
+
+        .certifications-row:nth-child(3) {
+            animation: scroll-right-loop 300s linear infinite;
+        }
+
+        /* Sin pausa al hover - removido */
+
+        /* Badges de certificaciones con colores modernos */
+        .certification-badge {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Colores modernos individuales */
+        .certification-badge:nth-child(1) { background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 107, 107, 0.05)); border: 1px solid rgba(255, 107, 107, 0.3); }
+        .certification-badge:nth-child(2) { background: linear-gradient(135deg, rgba(54, 215, 183, 0.15), rgba(54, 215, 183, 0.05)); border: 1px solid rgba(54, 215, 183, 0.3); }
+        .certification-badge:nth-child(3) { background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(129, 140, 248, 0.05)); border: 1px solid rgba(129, 140, 248, 0.3); }
+        .certification-badge:nth-child(4) { background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(251, 146, 60, 0.05)); border: 1px solid rgba(251, 146, 60, 0.3); }
+        .certification-badge:nth-child(5) { background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05)); border: 1px solid rgba(168, 85, 247, 0.3); }
+        .certification-badge:nth-child(6) { background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05)); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .certification-badge:nth-child(7) { background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(244, 63, 94, 0.05)); border: 1px solid rgba(244, 63, 94, 0.3); }
+        .certification-badge:nth-child(8) { background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.05)); border: 1px solid rgba(14, 165, 233, 0.3); }
+        .certification-badge:nth-child(9) { background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05)); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .certification-badge:nth-child(10) { background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .certification-badge:nth-child(11) { background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(6, 182, 212, 0.3); }
+        .certification-badge:nth-child(12) { background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05)); border: 1px solid rgba(236, 72, 153, 0.3); }
+        .certification-badge:nth-child(13) { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05)); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .certification-badge:nth-child(14) { background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.05)); border: 1px solid rgba(99, 102, 241, 0.3); }
+        .certification-badge:nth-child(15) { background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05)); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .certification-badge:nth-child(16) { background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05)); border: 1px solid rgba(59, 130, 246, 0.3); }
+
+        .certification-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .certification-badge:hover {
+            transform: translateY(-2px) scale(1.02);
+            filter: brightness(1.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .certification-badge:hover::before {
+            left: 100%;
+        }
+
+        /* Animaciones de movimiento - loop perfecto desde centro */
+        @keyframes scroll-right-loop {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(-150%);
+            }
+        }
+
+        @keyframes scroll-left-loop {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(50%);
+            }
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .certifications-wrapper::before,
+            .certifications-wrapper::after {
+                width: 60px;
+            }
+
+            .certification-badge {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.85rem;
+                min-width: 180px;
+            }
+
+            .certifications-row {
+                gap: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            /* Velocidades de 120s para móvil también */
+            .certifications-row:nth-child(1) {
+                animation: scroll-right-loop 300s linear infinite;
+            }
+
+            .certifications-row:nth-child(2) {
+                animation: scroll-left-loop 300s linear infinite;
+            }
+
+            .certifications-row:nth-child(3) {
+                animation: scroll-right-loop 300s linear infinite;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .certifications-wrapper::before,
+            .certifications-wrapper::after {
+                width: 40px;
+            }
+
+            .certification-badge {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+                min-width: 160px;
+            }
+
+            .certifications-row {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="section-container">
+           
+            <div class="certifications-title">
+                    <h1>Contamos con las certificaciones...</h1>
+            </div>  
+            
+            <div class="certifications-wrapper">
+                <!-- Primera fila - Movimiento hacia la derecha -->
+                <div class="certifications-row">
+                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
+                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
+                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
+                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
+                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
+                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
+                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
+                    <div class="certification-badge">Certificación IPv6</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
+                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
+                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
+                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
+                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
+                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
+                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
+                    <div class="certification-badge">Certificación IPv6</div>
+                </div>
+
+                <!-- Segunda fila - Movimiento hacia la izquierda -->
+                <div class="certifications-row">
+                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
+                    <div class="certification-badge">CompTIA Security+</div>
+                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
+                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
+                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
+                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
+                    <div class="certification-badge">AWS Security Specialty</div>
+                    <div class="certification-badge">Azure Security Engineer</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
+                    <div class="certification-badge">CompTIA Security+</div>
+                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
+                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
+                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
+                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
+                    <div class="certification-badge">AWS Security Specialty</div>
+                    <div class="certification-badge">Azure Security Engineer</div>
+                </div>
+
+                <!-- Tercera fila - Movimiento hacia la derecha -->
+                <div class="certifications-row">
+                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
+                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
+                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
+                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
+                    <div class="certification-badge">ITIL Foundation</div>
+                    <div class="certification-badge">PMP - Project Management Professional</div>
+                    <div class="certification-badge">COBIT 5 Foundation</div>
+                    <div class="certification-badge">Prince2 Foundation</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
+                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
+                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
+                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
+                    <div class="certification-badge">ITIL Foundation</div>
+                    <div class="certification-badge">PMP - Project Management Professional</div>
+                    <div class="certification-badge">COBIT 5 Foundation</div>
+                    <div class="certification-badge">Prince2 Foundation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
