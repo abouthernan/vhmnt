@@ -440,34 +440,49 @@
 
         .testimonials-carousel-container {
             margin: 0;
-            overflow: visible;
+            overflow: hidden;
         }
 
         .testimonials-carousel-container::before,
         .testimonials-carousel-container::after {
-            display: none;
+            width: 20px;
+            display: block;
+        }
+
+        .testimonials-carousel-container::before {
+            background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.8) 50%, transparent 100%);
+        }
+
+        .testimonials-carousel-container::after {
+            background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.8) 50%, transparent 100%);
         }
 
         .testimonials-carousel-wrapper {
             margin: 0;
             padding: 0;
-            scroll-snap-type: x mandatory;
-            overflow-x: auto;
+            overflow-x: hidden;
         }
 
         .testimonials-track {
-            animation: none;
+            animation: scroll-testimonials-mobile 25s linear infinite;
             padding: 1rem 0.5rem;
             gap: 1rem;
         }
 
+        @keyframes scroll-testimonials-mobile {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         .testimonial-card {
-            scroll-snap-align: center;
             min-width: 260px;
             max-width: 280px;
             height: 240px;
             padding: 1.5rem;
-            margin-right: 0.5rem;
         }
 
         .testimonial-text {
@@ -531,26 +546,24 @@
 </style>
 
 <script>
-    // Auto-scroll testimonials con pausa en móvil
+    // Auto-scroll testimonials - funciona en todos los dispositivos
     document.addEventListener('DOMContentLoaded', function() {
         const track = document.querySelector('.testimonials-track');
-        const isMobile = window.innerWidth <= 480;
         
-        if (isMobile && track) {
-            // En móvil, remover la animación y permitir scroll manual
-            track.style.animation = 'none';
+        // Mantener la animación en todos los dispositivos
+        if (track) {
+            // Pausar en hover (solo desktop)
+            if (window.innerWidth > 768) {
+                track.parentElement.addEventListener('mouseenter', () => {
+                    track.style.animationPlayState = 'paused';
+                });
+                
+                track.parentElement.addEventListener('mouseleave', () => {
+                    track.style.animationPlayState = 'running';
+                });
+            }
         }
         
-        // Ajustar en resize
-        window.addEventListener('resize', function() {
-            const newIsMobile = window.innerWidth <= 480;
-            if (newIsMobile && track) {
-                track.style.animation = 'none';
-            } else if (track) {
-                track.style.animation = 'scroll-testimonials 40s linear infinite';
-            }
-        });
-        
-        console.log('Testimonials auto-scroll iniciado');
+        console.log('Testimonials auto-scroll iniciado para todos los dispositivos');
     });
 </script>
