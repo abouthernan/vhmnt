@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Squad Formation - DEFCON Enhanced</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #101010;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .option-section {
+            min-height: 100vh;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .option-label {
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            background: rgba(0, 255, 136, 0.9);
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+        }
+
+        /* ELITE SQUAD FORMATION */
+        .option2 {
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Squad title styles - REMOVED */
+
+        /* Sección Principal con Grid 50/50 */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            width: 100%;
+            max-width: 1400px;
+            margin-bottom: 3rem;
+        }
+
+        /* Formation Grid */
+        .formation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .formation-grid {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .formation-member {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .formation-member:hover {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .formation-leader {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(0, 255, 136, 0.2));
+            border: 3px solid #00ff88;
+        }
+
+        .formation-member:nth-child(2) { top: 10%; left: 50%; transform: translateX(-50%); }
+        .formation-member:nth-child(3) { top: 30%; right: 10%; }
+        .formation-member:nth-child(4) { bottom: 30%; right: 10%; }
+        .formation-member:nth-child(5) { bottom: 10%; left: 50%; transform: translateX(-50%); }
+        .formation-member:nth-child(6) { bottom: 30%; left: 10%; }
+        .formation-member:nth-child(7) { top: 30%; left: 10%; }
+
+        .neural-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            opacity: 0.3;
+            animation: pulse-line 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* DEFCON Terminal Interface - MEJORADO */
+        /* Terminal Container - Centrado */
+        .terminal-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .terminal-badge {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .defcon-badge-terminal {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0080, #ff8c00);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .defcon-terminal {
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .defcon-terminal:hover {
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .terminal-header {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f57; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #28ca42; }
+
+        .terminal-title {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .terminal-content {
+            padding: 1.2rem;
+            color: #00ff88;
+            line-height: 1.6;
+            flex: 1;
+            overflow-y: auto;
+            font-size: 0.9rem;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt {
+            color: #00f5ff;
+            font-weight: bold;
+        }
+
+        .terminal-output {
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .log-entry {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .log-entry.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .log-entry.hidden {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .timestamp {
+            color: #ffbd2e;
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Efectos adicionales */
+        .pulse-animation {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); }
+        }
+
+        /* Terminal Status Indicator */
+        .terminal-status {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .terminal-container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .formation-grid {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .formation-grid {
+                width: 300px;
+                height: 300px;
+            }
+
+            .formation-member {
+                width: 70px;
+                height: 70px;
+                font-size: 0.8rem;
+            }
+
+            .formation-leader {
+                width: 100px;
+                height: 100px;
+            }
+
+            .squad-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .defcon-terminal {
+                height: 350px;
+            }
+
+            .terminal-content {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                gap: 1.5rem;
+            }
+
+            .defcon-terminal {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ELITE SQUAD FORMATION + DEFCON TERMINAL -->
+    <div class="option-section option2">
+        <div class="container">
+            
+            <div class="main-content">
+                <!-- Formation Grid -->
+                <div class="formation-container">
+                    <div class="formation-grid">
+                        <div class="formation-member formation-leader pulse-animation">
+                            <div style="font-size: 1.8rem; color: #00ff88; margin-bottom: 0.5rem;">AE</div>
+                            <div style="font-size: 0.9rem; font-weight: bold;">Team Lead</div>
+                            <div style="font-size: 0.7rem; opacity: 0.7;">DEFCON Veteran</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">LC</div>
+                            <div style="font-size: 0.7rem;">Pentester</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">MR</div>
+                            <div style="font-size: 0.7rem;">SOC Lead</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">JM</div>
+                            <div style="font-size: 0.7rem;">Forensics</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">PR</div>
+                            <div style="font-size: 0.7rem;">Risk Mgmt</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">AS</div>
+                            <div style="font-size: 0.7rem;">Cloud Sec</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">DL</div>
+                            <div style="font-size: 0.7rem;">Compliance</div>
+                        </div>
+                        
+                        <!-- Neural Lines -->
+                        <div class="neural-line" style="top: 50%; left: 20%; width: 60%; transform: translateY(-50%);"></div>
+                        <div class="neural-line" style="top: 30%; left: 30%; width: 40%; transform: rotate(45deg);"></div>
+                        <div class="neural-line" style="top: 70%; left: 30%; width: 40%; transform: rotate(-45deg);"></div>
+                    </div>
+                </div>
+
+                <!-- DEFCON Terminal Container -->
+                <div class="terminal-container">
+                    <div class="defcon-terminal">
+                        <div class="terminal-status"></div>
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <span class="terminal-dot red"></span>
+                                <span class="terminal-dot yellow"></span>
+                                <span class="terminal-dot green"></span>
+                            </div>
+                            <div class="terminal-title">DEFCON_VETERAN.exe</div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> cat experience.log
+                            </div>
+                            <div class="terminal-output">
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2019-08-08]</span> DEFCON 27 → Las Vegas ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2020-08-08]</span> DEFCON 28 → Virtual CTF Champion ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2021-08-05]</span> DEFCON 29 → Speaker Track ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2022-08-11]</span> DEFCON 30 → Village Leader ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2023-08-10]</span> DEFCON 31 → Red Team Elite ✓
+                                </div>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> whoami
+                            </div>
+                            <div class="terminal-output" style="padding-left: 1rem; display: none;" id="whoami-output">
+                                <div style="color: #00f5ff;">andrés_felipe_estupiñán</div>
+                                <div style="color: #ffbd2e;">Cybersecurity Expert | LATAM Guardian</div>
+                                <div style="color: #00ff88;">Status: Active | Location: LATAM</div>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> <span class="cursor">█</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terminal typing effect mejorado
+        let isTyping = false;
+        let typingTimeout;
+
+        function initTerminal() {
+            const logEntries = document.querySelectorAll('.log-entry');
+            const whoamiOutput = document.getElementById('whoami-output');
+            
+            logEntries.forEach(entry => {
+                entry.classList.add('hidden');
+                entry.classList.remove('show');
+            });
+            
+            if (whoamiOutput) {
+                whoamiOutput.style.display = 'none';
+            }
+        }
+
+        function typeTerminal() {
+            if (isTyping) return;
+            isTyping = true;
+            
+            const logEntries = document.querySelectorAll('.log-entry');
+            let index = 0;
+            
+            function showNext() {
+                if (index < logEntries.length) {
+                    const entry = logEntries[index];
+                    entry.classList.remove('hidden');
+                    entry.classList.add('show');
+                    
+                    index++;
+                    typingTimeout = setTimeout(showNext, 400);
+                } else {
+                    // Show whoami output
+                    typingTimeout = setTimeout(() => {
+                        const whoamiOutput = document.getElementById('whoami-output');
+                        if (whoamiOutput) {
+                            whoamiOutput.style.display = 'block';
+                            whoamiOutput.style.opacity = '0';
+                            setTimeout(() => {
+                                whoamiOutput.style.transition = 'opacity 0.5s ease';
+                                whoamiOutput.style.opacity = '1';
+                            }, 100);
+                        }
+                        isTyping = false;
+                    }, 600);
+                }
+            }
+            
+            showNext();
+        }
+
+        function resetTerminal() {
+            clearTimeout(typingTimeout);
+            isTyping = false;
+            initTerminal();
+            setTimeout(typeTerminal, 300);
+        }
+
+        // Enhanced hover effects for formation members
+        document.querySelectorAll('.formation-member').forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 25px rgba(0, 255, 136, 0.6)';
+                
+                // Add slight rotation effect for non-leaders
+                if (!this.classList.contains('formation-leader')) {
+                    this.style.transform = this.style.transform + ' rotate(5deg)';
+                }
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+                
+                // Remove rotation
+                if (!this.classList.contains('formation-leader')) {
+                    this.style.transform = this.style.transform.replace(' rotate(5deg)', '');
+                }
+            });
+        });
+
+        // Squad stats enhanced hover effects - REMOVED
+
+        // Terminal click interaction
+        document.querySelector('.defcon-terminal').addEventListener('click', function(e) {
+            e.preventDefault();
+            resetTerminal();
+        });
+
+        // Auto-restart terminal animation every 10 seconds
+        function autoRestart() {
+            if (!isTyping) {
+                resetTerminal();
+            }
+            setTimeout(autoRestart, 10000);
+        }
+
+        // Initialize on load
+        window.addEventListener('load', function() {
+            initTerminal();
+            setTimeout(typeTerminal, 1000);
+            setTimeout(autoRestart, 10000);
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            clearTimeout(typingTimeout);
+        });
+    </script>
+</body>
+</html>

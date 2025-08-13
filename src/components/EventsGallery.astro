@@ -1,0 +1,209 @@
+<!-- Galería Horizontal con Imágenes Hardcodeadas -->
+<div class="gallery-section">
+    <!-----
+    <div class="section-title">DEFCON Gallery</div>
+    --- -->
+    <div class="horizontal-scroll" id="horizontalScroll">
+        <div class="scroll-item">
+            <img src="/img/events/defcon-1.jpg" alt="DEFCON 1" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">Defcon 2021</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-2.jpg" alt="DEFCON 28" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">Defcon 2022</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-3.jpg" alt="DEFCON 29" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">Defcon 2023</span>
+            </div>
+        </div>
+         <div class="scroll-item">
+            <img src="/img/events/defcon-4.jpg" alt="DEFCON 30" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">DEFCON 30</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-5.jpg" alt="Speaker Session" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">Speaker</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-6.jpg" alt="Networking" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">Networking</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-7.jpg" alt="CTF Competition" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">CTF</span>
+            </div>
+        </div>
+        <div class="scroll-item">
+            <img src="/img/events/defcon-8.jpg" alt="CTF Competition" class="scroll-image">
+            <div class="image-overlay">
+                <span class="image-label">CTF</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicators">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+    </div>
+</div>
+
+<style>
+    /* Galería Horizontal con Imágenes */
+    .gallery-section {
+        width: 100%;
+        margin: 3rem 0;
+        background: #101010;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+
+    .horizontal-scroll {
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 0;
+    }
+
+    .horizontal-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-item {
+        min-width: 200px;
+        height: 200px;
+        background: #0a0a0a;
+        border-right: 1px solid #1a1a1a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .scroll-item:last-child {
+        border-right: none;
+    }
+
+    .scroll-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+    }
+
+    .scroll-item:hover .scroll-image {
+        transform: scale(1.05);
+    }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 1rem;
+        transform: translateY(100%);
+        transition: transform 0.2s ease;
+    }
+
+    .scroll-item:hover .image-overlay {
+        transform: translateY(0);
+    }
+
+    .image-label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .scroll-indicators {
+        display: flex;
+        gap: 4px;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .scroll-dot {
+        width: 4px;
+        height: 4px;
+        background: #333;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+    }
+
+    .scroll-dot.active {
+        background: #666;
+        width: 16px;
+        border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .scroll-item {
+            min-width: 150px;
+            height: 150px;
+        }
+    }
+</style>
+
+<script>
+    // Horizontal scroll indicators
+    const horizontalScroll = document.getElementById('horizontalScroll');
+    const scrollDots = document.querySelectorAll('.scroll-dot');
+
+    if (horizontalScroll && scrollDots.length > 0) {
+        horizontalScroll.addEventListener('scroll', () => {
+            const scrollLeft = horizontalScroll.scrollLeft;
+            const scrollWidth = horizontalScroll.scrollWidth - horizontalScroll.clientWidth;
+            const scrollPercent = scrollLeft / scrollWidth;
+            
+            const activeIndex = Math.round(scrollPercent * (scrollDots.length - 1));
+            
+            scrollDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === activeIndex);
+            });
+        });
+
+        // Auto-scroll suave
+        let autoScrollDirection = 1;
+        setInterval(() => {
+            const maxScroll = horizontalScroll.scrollWidth - horizontalScroll.clientWidth;
+            const currentScroll = horizontalScroll.scrollLeft;
+            
+            if (currentScroll >= maxScroll) autoScrollDirection = -1;
+            if (currentScroll <= 0) autoScrollDirection = 1;
+            
+            horizontalScroll.scrollBy({
+                left: autoScrollDirection * 50,
+                behavior: 'smooth'
+            });
+        }, 3000);
+    }
+</script>

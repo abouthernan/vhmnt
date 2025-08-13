@@ -1,468 +1,556 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonios Section</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            background: #101010;
-            color: white;
-            overflow-x: hidden;
-        }
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <!-- Header -->
+        <div class="section-header">
+            <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
+            <p class="section-subtitle">
+                La confianza de nuestros clientes es nuestro mayor activo. 
+                Descubre cómo hemos transformado la seguridad digital de empresas en toda LATAM.
+            </p>
+        </div>
 
-        .testimonials-section {
-            background-color: #101010;
-            padding: 5rem 0;
-        }
-
-        .testimonials-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 4rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            color: white;
-            font-size: 42px;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #00f5ff, #00ff88);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-header .highlight {
-            color: #00ff88;
-            font-style: italic;
-            font-family: "Playfair-Display", serif;
-        }
-
-        .section-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Carousel Container */
-        .testimonials-carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Fade effects a los lados - igual que partners */
-        .testimonials-carousel-container::before,
-        .testimonials-carousel-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100px;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .testimonials-carousel-container::before {
-            left: 0;
-            background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
-        }
-
-        .testimonials-carousel-container::after {
-            right: 0;
-            background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
-        }
-
-        .testimonials-carousel-wrapper {
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            width: 100%;
-        }
-
-        .testimonials-carousel-wrapper::-webkit-scrollbar {
-            display: none;
-        }
-
-        .testimonials-track {
-            display: flex;
-            gap: 2rem;
-            padding: 0;
-            list-style: none;
-            margin: 0;
-            width: fit-content;
-            animation: scroll-testimonials 40s linear infinite;
-        }
-
-        /* Pausar animación al hover */
-        .testimonials-carousel-wrapper:hover .testimonials-track {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll-testimonials {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Testimonial Cards */
-        .testimonial-card {
-            background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a 60%, #151515 80%, #101010 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            min-width: 380px;
-            max-width: 420px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            height: 280px;
-            z-index: 2;
-        }
-
-        .testimonial-card:hover {
-            background: linear-gradient(to bottom, #222 0%, #222 60%, #1a1a1a 80%, #151515 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transform: translateY(0px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            z-index: 5;
-        }
-
-        /* Testimonial Text */
-        .testimonial-text {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            font-style: italic;
-        }
-
-        /* Client Info */
-        .client-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-shrink: 0;
-        }
-
-        .client-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #00f5ff, #00ff88);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #000;
-            font-size: 1.1rem;
-        }
-
-        .client-details h4 {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0 0 0.3rem 0;
-        }
-
-        .client-details p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Navigation Buttons - Ocultos para auto scroll */
-        .testimonial-nav-button {
-            display: none;
-        }
-
-        /* Indicators - Ocultos para auto scroll */
-        .testimonial-indicators {
-            display: none;
-        }
-
-        /* Stats Section */
-        /* Removido - stats en archivo separado */
-
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .testimonials-section {
-                padding: 3rem 0;
-            }
-
-            .testimonials-container {
-                padding: 0 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .testimonials-carousel-container {
-                padding: 0 50px;
-            }
-
-            .testimonials-carousel-wrapper {
-                margin: 0 -50px;
-                padding-left: 50px;
-                padding-right: 50px;
-            }
-
-            .testimonials-carousel-container::before {
-                left: 0;
-                width: 60px;
-                background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
-            }
-
-            .testimonials-carousel-container::after {
-                right: 0;
-                width: 60px;
-                background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
-            }
-
-            .testimonials-carousel-wrapper {
-                margin: 0;
-                padding: 0;
-            }
-
-            .testimonial-card {
-                min-width: 300px;
-                max-width: 320px;
-                padding: 2rem;
-                height: 260px;
-                background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a 60%, #151515 80%, #101010 100%);
-            }
-
-            .testimonial-card:hover {
-                background: linear-gradient(to bottom, #222 0%, #222 60%, #1a1a1a 80%, #151515 100%);
-            }
-
-            .testimonials-track {
-                gap: 1.5rem;
-                animation-duration: 35s;
-            }
-
-            .testimonial-nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .testimonials-stats {
-                /* Removido - stats en archivo separado */
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .testimonials-carousel-container {
-                overflow: visible;
-            }
-
-            .testimonials-carousel-wrapper {
-                margin: 0;
-                padding: 0;
-                scroll-snap-type: x mandatory;
-            }
-
-            .testimonials-carousel-container::before,
-            .testimonials-carousel-container::after {
-                display: none;
-            }
-
-            .testimonial-card {
-                scroll-snap-align: center;
-                min-width: 280px;
-                background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a 60%, #151515 80%, #101010 100%);
-            }
-
-            .testimonial-card:hover {
-                background: linear-gradient(to bottom, #222 0%, #222 60%, #1a1a1a 80%, #151515 100%);
-            }
-
-            .testimonials-stats {
-                /* Removido - stats en archivo separado */
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="testimonials-section">
-        <div class="testimonials-container">
-            <!-- Header -->
-            <div class="section-header">
-                <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
-                <p class="section-subtitle">
-                    La confianza de nuestros clientes es nuestro mayor activo. 
-                    Descubre cómo hemos transformado la seguridad digital de empresas en toda LATAM.
-                </p>
-            </div>
-
-            <!-- Carousel -->
-            <div class="testimonials-carousel-container">
-                <div class="testimonials-carousel-wrapper" id="testimonialsCarousel">
-                    <div class="testimonials-track">
-                        <!-- Testimonio 1 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "La implementación de sus sistemas de ciberseguridad transformó completamente nuestra infraestructura. 
-                                Ahora operamos con total tranquilidad sabiendo que nuestros datos están protegidos por expertos."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">MC</div>
-                                <div class="client-details">
-                                    <h4>María Contreras</h4>
-                                    <p>CTO, TechCorp LATAM</p>
-                                </div>
+        <!-- Carousel -->
+        <div class="testimonials-carousel-container">
+            <div class="testimonials-carousel-wrapper" id="testimonialsCarousel">
+                <div class="testimonials-track">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "La implementación de sus sistemas de ciberseguridad transformó completamente nuestra infraestructura. 
+                            Ahora operamos con total tranquilidad sabiendo que nuestros datos están protegidos por expertos."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">MC</div>
+                            <div class="client-details">
+                                <h4>María Contreras</h4>
+                                <p>CTO, TechCorp LATAM</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonio 2 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Su equipo de hacking ético identificó vulnerabilidades críticas que desconocíamos. 
-                                El nivel de detalle en sus reportes y las soluciones propuestas superaron nuestras expectativas."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">AR</div>
-                                <div class="client-details">
-                                    <h4>Andrés Rodríguez</h4>
-                                    <p>Director IT, FinanceSecure</p>
-                                </div>
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Su equipo de hacking ético identificó vulnerabilidades críticas que desconocíamos. 
+                            El nivel de detalle en sus reportes y las soluciones propuestas superaron nuestras expectativas."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">AR</div>
+                            <div class="client-details">
+                                <h4>Andrés Rodríguez</h4>
+                                <p>Director IT, FinanceSecure</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonio 3 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Después del incidente que tuvimos, contactamos al equipo y en 24 horas ya tenían un plan de acción. 
-                                Su respuesta rápida y efectiva nos salvó de una crisis mayor."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">LS</div>
-                                <div class="client-details">
-                                    <h4>Laura Sánchez</h4>
-                                    <p>CEO, RetailPlus</p>
-                                </div>
+                    <!-- Testimonio 3 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Después del incidente que tuvimos, contactamos al equipo y en 24 horas ya tenían un plan de acción. 
+                            Su respuesta rápida y efectiva nos salvó de una crisis mayor."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">LS</div>
+                            <div class="client-details">
+                                <h4>Laura Sánchez</h4>
+                                <p>CEO, RetailPlus</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonio 4 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "La auditoría de seguridad que realizaron nos abrió los ojos. No solo encontraron problemas, 
-                                sino que nos dieron una hoja de ruta clara para fortalecer toda nuestra infraestructura."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">JM</div>
-                                <div class="client-details">
-                                    <h4>Jorge Mendoza</h4>
-                                    <p>CISO, MedTech Solutions</p>
-                                </div>
+                    <!-- Testimonio 4 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "La auditoría de seguridad que realizaron nos abrió los ojos. No solo encontraron problemas, 
+                            sino que nos dieron una hoja de ruta clara para fortalecer toda nuestra infraestructura."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">JM</div>
+                            <div class="client-details">
+                                <h4>Jorge Mendoza</h4>
+                                <p>CISO, MedTech Solutions</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonio 5 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Su servicio de monitoreo 24/7 nos ha dado la paz mental que necesitábamos. 
-                                Sabemos que nuestros sistemas están siendo vigilados por verdaderos expertos."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">CP</div>
-                                <div class="client-details">
-                                    <h4>Carlos Pérez</h4>
-                                    <p>Operations Manager, LogiCorp</p>
-                                </div>
+                    <!-- Testimonio 5 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Su servicio de monitoreo 24/7 nos ha dado la paz mental que necesitábamos. 
+                            Sabemos que nuestros sistemas están siendo vigilados por verdaderos expertos."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">CP</div>
+                            <div class="client-details">
+                                <h4>Carlos Pérez</h4>
+                                <p>Operations Manager, LogiCorp</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Testimonio 6 -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "La implementación de ISO 27001 con su acompañamiento fue impecable. 
-                                No solo logramos la certificación, sino que mejoramos todos nuestros procesos de seguridad."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">AV</div>
-                                <div class="client-details">
-                                    <h4>Ana Vargas</h4>
-                                    <p>Quality Director, ManufacTech</p>
-                                </div>
+                    <!-- Testimonio 6 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "La implementación de ISO 27001 con su acompañamiento fue impecable. 
+                            No solo logramos la certificación, sino que mejoramos todos nuestros procesos de seguridad."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">AV</div>
+                            <div class="client-details">
+                                <h4>Ana Vargas</h4>
+                                <p>Quality Director, ManufacTech</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Duplicados para loop infinito -->
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "La implementación de sus sistemas de ciberseguridad transformó completamente nuestra infraestructura. 
-                                Ahora operamos con total tranquilidad sabiendo que nuestros datos están protegidos por expertos."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">MC</div>
-                                <div class="client-details">
-                                    <h4>María Contreras</h4>
-                                    <p>CTO, TechCorp LATAM</p>
-                                </div>
+                    <!-- Duplicados para loop infinito -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "La implementación de sus sistemas de ciberseguridad transformó completamente nuestra infraestructura. 
+                            Ahora operamos con total tranquilidad sabiendo que nuestros datos están protegidos por expertos."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">MC</div>
+                            <div class="client-details">
+                                <h4>María Contreras</h4>
+                                <p>CTO, TechCorp LATAM</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Su equipo de hacking ético identificó vulnerabilidades críticas que desconocíamos. 
-                                El nivel de detalle en sus reportes y las soluciones propuestas superaron nuestras expectativas."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">AR</div>
-                                <div class="client-details">
-                                    <h4>Andrés Rodríguez</h4>
-                                    <p>Director IT, FinanceSecure</p>
-                                </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Su equipo de hacking ético identificó vulnerabilidades críticas que desconocíamos. 
+                            El nivel de detalle en sus reportes y las soluciones propuestas superaron nuestras expectativas."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">AR</div>
+                            <div class="client-details">
+                                <h4>Andrés Rodríguez</h4>
+                                <p>Director IT, FinanceSecure</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Después del incidente que tuvimos, contactamos al equipo y en 24 horas ya tenían un plan de acción. 
-                                Su respuesta rápida y efectiva nos salvó de una crisis mayor."
-                            </p>
-                            <div class="client-info">
-                                <div class="client-avatar">LS</div>
-                                <div class="client-details">
-                                    <h4>Laura Sánchez</h4>
-                                    <p>CEO, RetailPlus</p>
-                                </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Después del incidente que tuvimos, contactamos al equipo y en 24 horas ya tenían un plan de acción. 
+                            Su respuesta rápida y efectiva nos salvó de una crisis mayor."
+                        </p>
+                        <div class="client-info">
+                            <div class="client-avatar">LS</div>
+                            <div class="client-details">
+                                <h4>Laura Sánchez</h4>
+                                <p>CEO, RetailPlus</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        // Auto-scroll testimonials - minimal JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Testimonials auto-scroll iniciado');
+<style>
+    .testimonials-section {
+        background-color: #101010;
+        padding: 5rem 0;
+        overflow: hidden;
+    }
+
+    .testimonials-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+        color: white;
+        font-size: 42px;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #00f5ff, #00ff88);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .section-header .highlight {
+        color: #00ff88;
+        font-style: italic;
+        font-family: "Playfair-Display", serif;
+    }
+
+    .section-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* Carousel Container */
+    .testimonials-carousel-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    /* Fade effects a los lados */
+    .testimonials-carousel-container::before,
+    .testimonials-carousel-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .testimonials-carousel-container::before {
+        left: 0;
+        background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.9) 20%, rgba(16, 16, 16, 0.6) 60%, transparent 100%);
+    }
+
+    .testimonials-carousel-container::after {
+        right: 0;
+        background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.9) 20%, rgba(16, 16, 16, 0.6) 60%, transparent 100%);
+    }
+
+    .testimonials-carousel-wrapper {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        width: 100%;
+    }
+
+    .testimonials-carousel-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .testimonials-track {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem 0;
+        list-style: none;
+        margin: 0;
+        width: fit-content;
+        animation: scroll-testimonials 40s linear infinite;
+    }
+
+    /* Pausar animación al hover */
+    .testimonials-carousel-wrapper:hover .testimonials-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll-testimonials {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+        background: linear-gradient(to bottom, #1a1a1a 0%, #1a1a1a 60%, #151515 80%, #101010 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+        min-width: 380px;
+        max-width: 420px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        height: 280px;
+        z-index: 2;
+    }
+
+    .testimonial-card:hover {
+        background: linear-gradient(to bottom, #222 0%, #222 60%, #1a1a1a 80%, #151515 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        z-index: 5;
+    }
+
+    /* Testimonial Text */
+    .testimonial-text {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        flex-grow: 1;
+        font-style: italic;
+    }
+
+    /* Client Info */
+    .client-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+
+    .client-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00f5ff, #00ff88);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #000;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .client-details h4 {
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 0 0.3rem 0;
+    }
+
+    .client-details p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* RESPONSIVE MEJORADO */
+    @media screen and (max-width: 1024px) {
+        .testimonials-container {
+            padding: 0 1.5rem;
+        }
+        
+        .testimonial-card {
+            min-width: 350px;
+            max-width: 380px;
+            padding: 2rem;
+        }
+        
+        .testimonials-carousel-container::before,
+        .testimonials-carousel-container::after {
+            width: 60px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .testimonials-section {
+            padding: 4rem 0;
+        }
+
+        .testimonials-container {
+            padding: 0 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+
+        .testimonials-carousel-container::before,
+        .testimonials-carousel-container::after {
+            width: 40px;
+        }
+
+        .testimonials-carousel-container::before {
+            background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.8) 30%, transparent 100%);
+        }
+
+        .testimonials-carousel-container::after {
+            background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.8) 30%, transparent 100%);
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            max-width: 330px;
+            padding: 1.8rem;
+            height: 260px;
+        }
+
+        .testimonials-track {
+            gap: 1.5rem;
+            animation-duration: 35s;
+            padding: 1.5rem 0;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-avatar {
+            width: 45px;
+            height: 45px;
+            font-size: 1rem;
+        }
+
+        .client-details h4 {
+            font-size: 1rem;
+        }
+
+        .client-details p {
+            font-size: 0.85rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .testimonials-section {
+            padding: 3rem 0;
+            overflow-x: hidden;
+        }
+
+        .testimonials-container {
+            padding: 0 0.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            padding: 0 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            padding: 0 0.5rem;
+        }
+
+        .testimonials-carousel-container {
+            margin: 0;
+            overflow: visible;
+        }
+
+        .testimonials-carousel-container::before,
+        .testimonials-carousel-container::after {
+            display: none;
+        }
+
+        .testimonials-carousel-wrapper {
+            margin: 0;
+            padding: 0;
+            scroll-snap-type: x mandatory;
+            overflow-x: auto;
+        }
+
+        .testimonials-track {
+            animation: none;
+            padding: 1rem 0.5rem;
+            gap: 1rem;
+        }
+
+        .testimonial-card {
+            scroll-snap-align: center;
+            min-width: 260px;
+            max-width: 280px;
+            height: 240px;
+            padding: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .client-info {
+            gap: 0.8rem;
+        }
+
+        .client-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 0.9rem;
+        }
+
+        .client-details h4 {
+            font-size: 0.95rem;
+        }
+
+        .client-details p {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        .testimonials-container {
+            padding: 0 0.25rem;
+        }
+
+        .testimonial-card {
+            min-width: 240px;
+            max-width: 260px;
+            padding: 1.25rem;
+            height: 220px;
+        }
+
+        .testimonial-text {
+            font-size: 0.85rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Prevenir overflow horizontal */
+    * {
+        box-sizing: border-box;
+    }
+
+    .testimonials-section,
+    .testimonials-container,
+    .testimonials-carousel-container,
+    .testimonials-carousel-wrapper {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+</style>
+
+<script>
+    // Auto-scroll testimonials con pausa en móvil
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.testimonials-track');
+        const isMobile = window.innerWidth <= 480;
+        
+        if (isMobile && track) {
+            // En móvil, remover la animación y permitir scroll manual
+            track.style.animation = 'none';
+        }
+        
+        // Ajustar en resize
+        window.addEventListener('resize', function() {
+            const newIsMobile = window.innerWidth <= 480;
+            if (newIsMobile && track) {
+                track.style.animation = 'none';
+            } else if (track) {
+                track.style.animation = 'scroll-testimonials 40s linear infinite';
+            }
         });
-    </script>
-</body>
-</html>
+        
+        console.log('Testimonials auto-scroll iniciado');
+    });
+</script>
