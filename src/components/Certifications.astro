@@ -1,34 +1,116 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificaciones Section</title>
+<div class="section-certifications section-no-padding">
+        <div class="container-certifications">
+                <div class="gradient-heading">
+                    <h1>Certificados en los<br /> más altos<span class="gradient-accent"> estándares<br /> internacionales.</span></h1> 
+                </div>
+            
+            <div class="certifications-wrapper">
+                <!-- Primera fila - Movimiento hacia la derecha -->
+                <div class="certifications-row">
+                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
+                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
+                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
+                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
+                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
+                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
+                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
+                    <div class="certification-badge">Certificación IPv6</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
+                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
+                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
+                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
+                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
+                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
+                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
+                    <div class="certification-badge">Certificación IPv6</div>
+                </div>
+
+                <!-- Segunda fila - Movimiento hacia la izquierda -->
+                <div class="certifications-row">
+                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
+                    <div class="certification-badge">CompTIA Security+</div>
+                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
+                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
+                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
+                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
+                    <div class="certification-badge">AWS Security Specialty</div>
+                    <div class="certification-badge">Azure Security Engineer</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
+                    <div class="certification-badge">CompTIA Security+</div>
+                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
+                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
+                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
+                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
+                    <div class="certification-badge">AWS Security Specialty</div>
+                    <div class="certification-badge">Azure Security Engineer</div>
+                </div>
+
+                <!-- Tercera fila - Movimiento hacia la derecha -->
+                <div class="certifications-row">
+                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
+                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
+                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
+                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
+                    <div class="certification-badge">ITIL Foundation</div>
+                    <div class="certification-badge">PMP - Project Management Professional</div>
+                    <div class="certification-badge">COBIT 5 Foundation</div>
+                    <div class="certification-badge">Prince2 Foundation</div>
+                    
+                    <!-- Duplicados para loop continuo perfecto -->
+                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
+                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
+                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
+                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
+                    <div class="certification-badge">ITIL Foundation</div>
+                    <div class="certification-badge">PMP - Project Management Professional</div>
+                    <div class="certification-badge">COBIT 5 Foundation</div>
+                    <div class="certification-badge">Prince2 Foundation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+        .section-certifications {
             background: #101010;
             color: white;
-            overflow-x: hidden;
-        }
-
-        .section {
-            background-color: #0a0a0f;
-            padding: 5rem 0;
             overflow: hidden;
         }
 
-        .section-container {
+        .container-certifications {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-         .certifications-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+
+        .gradient-heading {
+        font-size: 3rem;
+        font-weight: 400;
+        max-width: 100%;
+        line-height: 1;
+        padding-bottom: 2%;
+        margin: 0;
+        color: #ffffff;
+        text-align: center;
+
+    }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
         .certificacions-title h2 {
             color: #ffffff;
@@ -41,14 +123,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-                h1 {
-        color: white;
-        font-size: 42px;
-        line-height: 1.2;
-        padding-bottom: 2rem;
-        text-align: center;
-        margin: 0 auto;
-        }
+
 
         .section-label {
             color: rgba(255, 255, 255, 0.6);
@@ -94,12 +169,12 @@
 
         .certifications-wrapper::before {
             left: 0;
-            background: linear-gradient(to right, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+            background: linear-gradient(to right, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
         }
 
         .certifications-wrapper::after {
             right: 0;
-            background: linear-gradient(to left, #0a0a0f 0%, rgba(10, 10, 15, 0.8) 30%, rgba(10, 10, 15, 0.4) 70%, transparent 100%);
+            background: linear-gradient(to left, #101010 0%, rgba(16, 16, 16, 0.8) 30%, rgba(16, 16, 16, 0.4) 70%, transparent 100%);
         }
 
         /* Filas de certificaciones */
@@ -269,83 +344,3 @@
             }
         }
     </style>
-</head>
-<body>
-    <div class="section">
-        <div class="section-container">
-           
-            <div class="certifications-title">
-                    <h1>Contamos con las certificaciones...</h1>
-            </div>  
-            
-            <div class="certifications-wrapper">
-                <!-- Primera fila - Movimiento hacia la derecha -->
-                <div class="certifications-row">
-                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
-                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
-                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
-                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
-                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
-                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
-                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
-                    <div class="certification-badge">Certificación IPv6</div>
-                    
-                    <!-- Duplicados para loop continuo perfecto -->
-                    <div class="certification-badge">CEH - Certified Ethical Hacker</div>
-                    <div class="certification-badge">OSCP - Offensive Security Certified</div>
-                    <div class="certification-badge">ISC2 Certified Cybersecurity</div>
-                    <div class="certification-badge">PECB ISO/IEC 27001 Lead Implementer</div>
-                    <div class="certification-badge">Auditor Líder ISO/IEC 27001:2022</div>
-                    <div class="certification-badge">PECB ISO 31000 Lead Risk Manager</div>
-                    <div class="certification-badge">Auditor interno ISO/IEC 22301</div>
-                    <div class="certification-badge">Certificación IPv6</div>
-                </div>
-
-                <!-- Segunda fila - Movimiento hacia la izquierda -->
-                <div class="certifications-row">
-                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
-                    <div class="certification-badge">CompTIA Security+</div>
-                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
-                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
-                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
-                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
-                    <div class="certification-badge">AWS Security Specialty</div>
-                    <div class="certification-badge">Azure Security Engineer</div>
-                    
-                    <!-- Duplicados para loop continuo perfecto -->
-                    <div class="certification-badge">CISSP - Certified Information Systems Security</div>
-                    <div class="certification-badge">CompTIA Security+</div>
-                    <div class="certification-badge">CISM - Certified Information Security Manager</div>
-                    <div class="certification-badge">GCIH - GIAC Certified Incident Handler</div>
-                    <div class="certification-badge">CCSP - Certified Cloud Security Professional</div>
-                    <div class="certification-badge">CISA - Certified Information Systems Auditor</div>
-                    <div class="certification-badge">AWS Security Specialty</div>
-                    <div class="certification-badge">Azure Security Engineer</div>
-                </div>
-
-                <!-- Tercera fila - Movimiento hacia la derecha -->
-                <div class="certifications-row">
-                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
-                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
-                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
-                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
-                    <div class="certification-badge">ITIL Foundation</div>
-                    <div class="certification-badge">PMP - Project Management Professional</div>
-                    <div class="certification-badge">COBIT 5 Foundation</div>
-                    <div class="certification-badge">Prince2 Foundation</div>
-                    
-                    <!-- Duplicados para loop continuo perfecto -->
-                    <div class="certification-badge">GSEC - GIAC Security Essentials</div>
-                    <div class="certification-badge">CRISC - Certified in Risk and Information Systems</div>
-                    <div class="certification-badge">SANS GPEN - Penetration Tester</div>
-                    <div class="certification-badge">CHFI - Computer Hacking Forensic Investigator</div>
-                    <div class="certification-badge">ITIL Foundation</div>
-                    <div class="certification-badge">PMP - Project Management Professional</div>
-                    <div class="certification-badge">COBIT 5 Foundation</div>
-                    <div class="certification-badge">Prince2 Foundation</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>

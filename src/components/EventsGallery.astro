@@ -1,8 +1,10 @@
 <!-- Galería Horizontal con Imágenes Hardcodeadas -->
-<div class="gallery-section">
-    <!-----
-    <div class="section-title">DEFCON Gallery</div>
-    --- -->
+<div class="section-gallery section-minimal">
+    <div class="conteiner-events-gallery section-title">
+        <div class="gradient-heading">
+            <h1>Hacemos parte<br /> de los mejores<br /> eventos
+            <span class="gradient-accent"> del mundo.</span></h1>
+        </div>
     <div class="horizontal-scroll" id="horizontalScroll">
         <div class="scroll-item">
             <img src="/img/events/defcon-1.jpg" alt="DEFCON 1" class="scroll-image">
@@ -63,6 +65,44 @@
 </div>
 
 <style>
+
+    .section-gallery {
+        width: 100%;
+        background: #101010;
+        padding: 3rem 0;
+        padding-bottom: 12%;
+    }
+
+    .container-events-gallery {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 5rem;
+        text-align: center;
+    }
+
+    .gradient-heading {
+    font-size: 3.2rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1.2;
+    padding-bottom: 2%;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
     /* Galería Horizontal con Imágenes */
     .gallery-section {
         width: 100%;

@@ -1,9 +1,9 @@
-<section class="testimonials-section">
-    <div class="testimonials-container">
+<section class="section-testimonials section-no-padding">
+    <div class="container-testimonials">
         <!-- Header -->
-        <div class="section-header">
-            <h2>Lo que dicen nuestros <span class="highlight">clientes</span></h2>
-            <p class="section-subtitle">
+        <div class="gradient-heading">
+          <h1>Lo que dicen nuestros <span class="gradient-accent">clientes</span></h1>
+           <p class="section-subtitle">
                 La confianza de nuestros clientes es nuestro mayor activo. 
                 Descubre cómo hemos transformado la seguridad digital de empresas en toda LATAM.
             </p>
@@ -152,22 +152,44 @@
 </section>
 
 <style>
-    .testimonials-section {
+    .section-testimonials {
         background-color: #101010;
-        padding: 5rem 0;
+        color: #ffffff;
         overflow: hidden;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
-    .testimonials-container {
+    .container-testimonials {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0 2rem;
+    
     }
 
-    .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+
+     .gradient-heading {
+    font-size: 3rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1;
+    padding-bottom: 2%;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+
+  }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
     .section-header h2 {
         color: white;
@@ -351,11 +373,11 @@
     }
 
     @media screen and (max-width: 768px) {
-        .testimonials-section {
+        .section-testimonials {
             padding: 4rem 0;
         }
 
-        .testimonials-container {
+        .container-testimonials {
             padding: 0 1rem;
         }
 
@@ -415,12 +437,12 @@
     }
 
     @media screen and (max-width: 480px) {
-        .testimonials-section {
+        .section-testimonials {
             padding: 3rem 0;
             overflow-x: hidden;
         }
 
-        .testimonials-container {
+        .container-testimonials {
             padding: 0 0.5rem;
         }
 

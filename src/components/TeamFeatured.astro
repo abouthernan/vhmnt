@@ -1,17 +1,112 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Squad Formation - DEFCON Enhanced</title>
+
+    <!-- ELITE SQUAD FORMATION + DEFCON TERMINAL -->
+    <div class="section-team-featured">
+        <div class="container-team-featured">
+            <div class="gradient-heading">
+      <h1>Liderado<br /> por uno de los expertos<br /><span class="gradient-accent"> en latinoamerica.</span></h1>
+    </div>
+            
+            <div class="main-content">
+                <!-- Formation Grid -->
+                <div class="formation-container">
+                    <div class="formation-grid">
+                        <div class="formation-member formation-leader pulse-animation">
+                            <div style="font-size: 1.8rem; color: #00ff88; margin-bottom: 0.5rem;">AE</div>
+                            <div style="font-size: 0.9rem; font-weight: bold;">Team Lead</div>
+                            <div style="font-size: 0.7rem; opacity: 0.7;">DEFCON Veteran</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">LC</div>
+                            <div style="font-size: 0.7rem;">Pentester</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">MR</div>
+                            <div style="font-size: 0.7rem;">SOC Lead</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">JM</div>
+                            <div style="font-size: 0.7rem;">Forensics</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">PR</div>
+                            <div style="font-size: 0.7rem;">Risk Mgmt</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">AS</div>
+                            <div style="font-size: 0.7rem;">Cloud Sec</div>
+                        </div>
+                        <div class="formation-member">
+                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">DL</div>
+                            <div style="font-size: 0.7rem;">Compliance</div>
+                        </div>
+                        
+                        <!-- Neural Lines -->
+                        <div class="neural-line" style="top: 50%; left: 20%; width: 60%; transform: translateY(-50%);"></div>
+                        <div class="neural-line" style="top: 30%; left: 30%; width: 40%; transform: rotate(45deg);"></div>
+                        <div class="neural-line" style="top: 70%; left: 30%; width: 40%; transform: rotate(-45deg);"></div>
+                    </div>
+                </div>
+
+                <!-- DEFCON Terminal Container -->
+                <div class="terminal-container">
+                    <div class="defcon-terminal">
+                        <div class="terminal-status"></div>
+                        <div class="terminal-header">
+                            <div class="terminal-controls">
+                                <span class="terminal-dot red"></span>
+                                <span class="terminal-dot yellow"></span>
+                                <span class="terminal-dot green"></span>
+                            </div>
+                            <div class="terminal-title">DEFCON_VETERAN.exe</div>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> cat experience.log
+                            </div>
+                            <div class="terminal-output">
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2019-08-08]</span> DEFCON 27 → Las Vegas ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2020-08-08]</span> DEFCON 28 → Virtual CTF Champion ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2021-08-05]</span> DEFCON 29 → Speaker Track ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2022-08-11]</span> DEFCON 30 → Village Leader ✓
+                                </div>
+                                <div class="log-entry hidden">
+                                    <span class="timestamp">[2023-08-10]</span> DEFCON 31 → Red Team Elite ✓
+                                </div>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> whoami
+                            </div>
+                            <div class="terminal-output" style="padding-left: 1rem; display: none;" id="whoami-output">
+                                <div style="color: #00f5ff;">andrés_felipe_estupiñán</div>
+                                <div style="color: #ffbd2e;">Cybersecurity Expert | LATAM Guardian</div>
+                                <div style="color: #00ff88;">Status: Active | Location: LATAM</div>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@defcon:~$</span> <span class="cursor">█</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+        .section-team-featured {
             background: #101010;
             color: white;
-            overflow-x: hidden;
+            padding: 5rem 0;
+            overflow: hidden;
         }
+      
 
         .option-section {
             min-height: 100vh;
@@ -37,6 +132,30 @@
             padding: 0 2rem;
             height: 100%;
         }
+
+           .gradient-heading {
+        font-size: 3rem;
+        font-weight: 400;
+        max-width: 100%;
+        line-height: 1;
+        padding-bottom: 2%;
+        margin: 0;
+        color: #ffffff;
+        text-align: center;
+
+    }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
         /* ELITE SQUAD FORMATION */
         .option2 {
@@ -344,103 +463,6 @@
             }
         }
     </style>
-</head>
-<body>
-    <!-- ELITE SQUAD FORMATION + DEFCON TERMINAL -->
-    <div class="option-section option2">
-        <div class="container">
-            
-            <div class="main-content">
-                <!-- Formation Grid -->
-                <div class="formation-container">
-                    <div class="formation-grid">
-                        <div class="formation-member formation-leader pulse-animation">
-                            <div style="font-size: 1.8rem; color: #00ff88; margin-bottom: 0.5rem;">AE</div>
-                            <div style="font-size: 0.9rem; font-weight: bold;">Team Lead</div>
-                            <div style="font-size: 0.7rem; opacity: 0.7;">DEFCON Veteran</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">LC</div>
-                            <div style="font-size: 0.7rem;">Pentester</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">MR</div>
-                            <div style="font-size: 0.7rem;">SOC Lead</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">JM</div>
-                            <div style="font-size: 0.7rem;">Forensics</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">PR</div>
-                            <div style="font-size: 0.7rem;">Risk Mgmt</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">AS</div>
-                            <div style="font-size: 0.7rem;">Cloud Sec</div>
-                        </div>
-                        <div class="formation-member">
-                            <div style="font-size: 1.2rem; margin-bottom: 0.3rem;">DL</div>
-                            <div style="font-size: 0.7rem;">Compliance</div>
-                        </div>
-                        
-                        <!-- Neural Lines -->
-                        <div class="neural-line" style="top: 50%; left: 20%; width: 60%; transform: translateY(-50%);"></div>
-                        <div class="neural-line" style="top: 30%; left: 30%; width: 40%; transform: rotate(45deg);"></div>
-                        <div class="neural-line" style="top: 70%; left: 30%; width: 40%; transform: rotate(-45deg);"></div>
-                    </div>
-                </div>
-
-                <!-- DEFCON Terminal Container -->
-                <div class="terminal-container">
-                    <div class="defcon-terminal">
-                        <div class="terminal-status"></div>
-                        <div class="terminal-header">
-                            <div class="terminal-controls">
-                                <span class="terminal-dot red"></span>
-                                <span class="terminal-dot yellow"></span>
-                                <span class="terminal-dot green"></span>
-                            </div>
-                            <div class="terminal-title">DEFCON_VETERAN.exe</div>
-                        </div>
-                        <div class="terminal-content">
-                            <div class="terminal-line">
-                                <span class="prompt">root@defcon:~$</span> cat experience.log
-                            </div>
-                            <div class="terminal-output">
-                                <div class="log-entry hidden">
-                                    <span class="timestamp">[2019-08-08]</span> DEFCON 27 → Las Vegas ✓
-                                </div>
-                                <div class="log-entry hidden">
-                                    <span class="timestamp">[2020-08-08]</span> DEFCON 28 → Virtual CTF Champion ✓
-                                </div>
-                                <div class="log-entry hidden">
-                                    <span class="timestamp">[2021-08-05]</span> DEFCON 29 → Speaker Track ✓
-                                </div>
-                                <div class="log-entry hidden">
-                                    <span class="timestamp">[2022-08-11]</span> DEFCON 30 → Village Leader ✓
-                                </div>
-                                <div class="log-entry hidden">
-                                    <span class="timestamp">[2023-08-10]</span> DEFCON 31 → Red Team Elite ✓
-                                </div>
-                            </div>
-                            <div class="terminal-line">
-                                <span class="prompt">root@defcon:~$</span> whoami
-                            </div>
-                            <div class="terminal-output" style="padding-left: 1rem; display: none;" id="whoami-output">
-                                <div style="color: #00f5ff;">andrés_felipe_estupiñán</div>
-                                <div style="color: #ffbd2e;">Cybersecurity Expert | LATAM Guardian</div>
-                                <div style="color: #00ff88;">Status: Active | Location: LATAM</div>
-                            </div>
-                            <div class="terminal-line">
-                                <span class="prompt">root@defcon:~$</span> <span class="cursor">█</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Terminal typing effect mejorado
@@ -552,5 +574,3 @@
             clearTimeout(typingTimeout);
         });
     </script>
-</body>
-</html>

@@ -1,11 +1,8 @@
-<section class="hero-section">
-  <div class="hero-container">
-      <h1 class="gradient-heading">Protegemos el activo más<br /> importante de tu empresa,<br /><span class="gradient-accent"> la información.</span></h1>
-      <!-- <p>
-        Protegemos tu negocio de amenazas digitales con soluciones de seguridad<br/>
-        personalizadas. Tecnología de vanguardia y expertos dedicados para<br/>
-        salvaguardar tus datos y reputación.-->
-      </p>
+<section class="section-hero">
+  <div class="container-hero">
+    <div class="gradient-heading">
+      <h1>Protegemos el activo más<br /> importante de tu empresa,<br /><span class="gradient-accent"> la información.</span></h1>
+    </div>
       <!-- Call to Action -->
     <div class="cta-container">
       <a href="https://api.whatsapp.com/send/?phone=%2B573133846633&text&type=phone_number&app_absent=0" class="cta-gradient">
@@ -21,39 +18,27 @@
 <style>
 
 
-  .hero-section {
-            background:#0c0c0c;
-            overflow: hidden;
-            padding: 10% 18% 5% 18%;
-            position: relative;
-            max-width: 100%;
-            background: radial-gradient(circle at 30% 20%, #1d1d1e 0%, #0c0c0c 50%);
-            animation: breathe-gradient 8s ease-in-out infinite;
+  .section-hero {
+            background: #101010;
             color: white;
+            padding-top: 14%;
         }
 
-  .hero-container {
+  .container-hero {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0;
-        }
+  }
+
   
 
   .gradient-heading {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 400;
     max-width: 100%;
-    line-height: 1.2;
-    padding-bottom: 2%;
+    line-height: 1;
     margin: 0;
     color: #ffffff;
-    
-    /* Gradiente moderno 
-    background: linear-gradient(135deg, #00f5ff, #00ff88, #0080ff);
-    background-size: 200% 200%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;*/
     
     /* Animación sutil */
     animation: gradient-shift 4s ease-in-out infinite;
@@ -87,10 +72,11 @@
   /* Mobile Responsive */
   @media screen and (max-width: 768px) {
     .gradient-heading {
-      font-size: 2em;
+      font-size: 1rem;
       max-width: 100%;
       text-align: center;
       line-height: normal;
+      text-align: center;
     }
 
     .gradient-accent {

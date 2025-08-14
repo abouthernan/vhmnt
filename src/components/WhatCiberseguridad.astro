@@ -1,9 +1,9 @@
-<section class="what-section">
-  <div class="what-container">
-   
-    <div class="partners-title">
-      <h1>Somos expertos en...</h1>
-    </div>
+<section class="section-what section-minimal">
+    <div class="container-what">
+        <div class="gradient-heading">
+          <h1>Somos<br /> expertos en<br />
+            <span class="gradient-accent"> ciberseguridad.</span></h1>
+        </div>
     
     <div class="carousel-container">
       <button class="nav-button prev" data-direction="-1">‹</button>
@@ -113,20 +113,25 @@
       <div class="scroll-dot"></div>
       <div class="scroll-dot"></div>
     </div>
+
+    <!-- Flechas mobile (solo visible en móvil) -->
+    <div class="mobile-nav" id="mobileNav">
+      <button class="mobile-arrow mobile-prev" id="mobilePrev">‹</button>
+      <button class="mobile-arrow mobile-next" id="mobileNext">›</button>
+    </div>
   </div>
 </section>
 
 <style>
-  .what-section {
-    background:#0c0c0c;
-    overflow: hidden;
-    padding: 2% 12% 2% 12%;
+  .section-what {
+   background: #101010;
+   color: white;
+   overflow: hidden;
   }
 
-  .what-container {
+  .container-what {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 0rem;
   }
 
   .partners-title {
@@ -134,25 +139,31 @@
     margin-bottom: 3rem;
   }
 
-  .partners-title h1 {
+
+    .gradient-heading {
+    font-size: 3rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1;
+    padding-bottom: 2%;
+    margin: 0;
     color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #00f5ff, #00ff88);
+    text-align: center;
+
+  }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+    
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  h1 {
-    color: white;
-    font-size: 42px;
-    line-height: 1.2;
-    padding-bottom: 2rem;
-    text-align: center;
-    margin: 0 auto;
-  }
 
   span {
     color: #00ff88;
@@ -353,6 +364,40 @@
     transform: scale(1.2);
   }
 
+  /* Mobile Navigation - oculto por defecto */
+  .mobile-nav {
+    display: none;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .mobile-arrow {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #00ff88;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .mobile-arrow:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 0.5);
+    transform: scale(1.05);
+  }
+
+  .mobile-arrow:active {
+    transform: scale(0.95);
+  }
+
   /* RESPONSIVE MEJORADO */
   @media screen and (max-width: 1024px) {
     .what-section {
@@ -389,10 +434,6 @@
       padding: 0;
     }
 
-    h1 {
-      font-size: 2rem;
-      padding-bottom: 1.5rem;
-    }
 
     span {
       font-size: 2rem;
@@ -426,21 +467,13 @@
       font-size: 0.8rem;
     }
 
-    /* Puntos indicadores más prominentes en móvil */
+    /* Ocultar indicadores y mostrar flechas mobile */
     .scroll-indicators {
-      margin-top: 2.5rem;
+      display: none;
     }
 
-    .scroll-dot {
-      width: 10px;
-      height: 10px;
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .scroll-dot.active {
-      background: #00ff88;
-      transform: scale(1.3);
-      box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    .mobile-nav {
+      display: flex;
     }
   }
 
@@ -484,9 +517,7 @@
       gap: 0.75rem;
     }
 
-    h1 {
-      font-size: 1.75rem;
-    }
+
 
     .card-title {
       font-size: 1rem;
@@ -501,22 +532,19 @@
       font-size: 0.8rem;
     }
 
-    /* Puntos indicadores más visibles en móvil pequeño */
+    /* Ocultar indicadores y mantener flechas mobile */
     .scroll-indicators {
-      margin-top: 3rem;
-      gap: 0.7rem;
+      display: none;
     }
 
-    .scroll-dot {
-      width: 12px;
-      height: 12px;
-      background: rgba(255, 255, 255, 0.5);
+    .mobile-nav {
+      display: flex;
     }
 
-    .scroll-dot.active {
-      background: #00ff88;
-      transform: scale(1.4);
-      box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    .mobile-arrow {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
     }
   }
 
@@ -535,15 +563,19 @@
       max-width: 240px;
     }
 
-    /* Puntos aún más prominentes en pantallas muy pequeñas */
-    .scroll-dot {
-      width: 14px;
-      height: 14px;
+    /* Mantener solo flechas mobile en pantallas muy pequeñas */
+    .scroll-indicators {
+      display: none;
     }
 
-    .scroll-dot.active {
-      transform: scale(1.5);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    .mobile-nav {
+      display: flex;
+    }
+
+    .mobile-arrow {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
     }
   }
 </style>
@@ -572,6 +604,15 @@
     if (prevButton && nextButton) {
       prevButton.addEventListener('click', () => scrollCarousel(-1));
       nextButton.addEventListener('click', () => scrollCarousel(1));
+    }
+
+    // Event listeners para flechas mobile
+    const mobilePrev = document.getElementById('mobilePrev') as HTMLButtonElement;
+    const mobileNext = document.getElementById('mobileNext') as HTMLButtonElement;
+    
+    if (mobilePrev && mobileNext) {
+      mobilePrev.addEventListener('click', () => scrollCarousel(-1));
+      mobileNext.addEventListener('click', () => scrollCarousel(1));
     }
 
     // Crear indicadores dinámicamente
