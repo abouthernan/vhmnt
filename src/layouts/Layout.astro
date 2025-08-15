@@ -87,10 +87,10 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --section-padding: 10% 18% 8% 18%;
-    --section-padding-mobile: 20% 5% 6% 5%;
+    --section-padding-mobile: 20% 8% 5% 8%;
 	--bg-primary: #101010;
     --text-primary: #ffffff; /* Blanco para contraste */
-	--text-fade: rgba(255, 255, 255, 0.2); /* Blanco con opacidad para texto secundario */
+	--text-fade: rgba(113, 113, 113, 0.8); /* Blanco con opacidad para texto secundario */
 	
 	/* Tipografía - Fuentes */
 	--font-primary: 'Swansea', serif;
@@ -107,7 +107,7 @@ const { title } = Astro.props;
     --h1-size: 2.5rem;
     --h2-size: 2.5rem;
     --p-size: 1.125rem;
-	--p-small-size: 0.7rem;
+	--p-small-size: 0.8rem;
     
     /* Tipografía - Peso */
     --h1-weight: 400;
@@ -181,7 +181,37 @@ const { title } = Astro.props;
     line-height: var(--p-line-height);
     margin: var(--p-margin);
     color: var(--text-fade);
-	padding-top: 2rem;
+	padding-top: 1.8rem;
+	text-align: center;
+  }
+
+
+    .gradient-heading {
+    font-size: 3rem;
+    font-weight: 400;
+    max-width: 100%;
+    line-height: 1;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .gradient-accent {
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 1.2em;
+
+    /* Gradiente complementario para el span */
+    background: linear-gradient(135deg, #00ff88, #00f5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+   span {
+    color: #00ff88;
+    font-style: italic;
+    font-family: "Playfair-Display", serif;
+    font-size: 42px;
   }
 
 
@@ -189,9 +219,7 @@ const { title } = Astro.props;
   /* Responsive */
 
   @media (max-width: 768px) {
-	body {	
-      padding: var(--section-padding-mobile);
-	  }
+	
 
 	 :root {
       --h1-size: 2rem;
@@ -200,7 +228,7 @@ const { title } = Astro.props;
     }
 
 	/* O padding personalizado */
-	.section {
+	section {
 		padding: var(--section-padding-mobile)
 	}
   

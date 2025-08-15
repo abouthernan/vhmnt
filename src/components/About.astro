@@ -1,80 +1,49 @@
-<div class="main-about">
-    <h1 style="white-space: pre-wrap;">❤️️</h1>
-    <h1>Nos apasiona</h1>
-    <h1><span>lo que hacemos</span></h1>
-    <p>
-        Somos un equipo de expertos en diferentes áreas, enfocados en la
-        metodología Lean Startup; <strong
-            >creamos, medimos, aprendemos, iteramos.</strong
-        > Somos Data Driven, lo que no se mide no se mejora. Hacemos Producto, Ingeniería
-        Web, Growth Marketing, Scientific Advertising, UX/UI, Automatización IA,
-        Cyberseguridad, Consultoría y Mentoría.
-    </p>
-
+<section class="section-about">
+    <div class="container-about">
+        <div class="gradient-heading">
+            
+            <h1>Nos apasiona<br /><span class="gradient-accent"> lo que hacemos</span></h1>
+            <p class="description"> Somos un equipo de expertos en diferentes áreas, enfocados en la
+                metodología Lean Startup; <strong>creamos, medimos, aprendemos, iteramos.</strong> 
+                Somos Data Driven, lo que no se mide no se mejora. Hacemos Producto, Ingeniería
+                Web, Growth Marketing, Scientific Advertising, UX/UI, Automatización IA,
+                Cyberseguridad, Consultoría y Mentoría.
+            </p>
+        </div>
+    </div>
+</section>
     <style>
         /* Main About*/
-
-        .main-about {
-            height: 100%;
-            max-width: 100%;
-            padding: 15% 18% 15% 18%;
-            background: radial-gradient(circle, #202020 0%, #101010 100%);
-            color: white;
-        }
-
-        h1 {
-            color: white;
-            font-size: 42px;
-            max-width: 80%;
-            line-height: 0.6;
-            padding-bottom: 2%;
-        }
-
-        p {
+        .section-about {
+            width: 100%;
+            background-color: #101010;
             color: #ffffff;
-            font-size: 16px;
-            max-width: 100%;
+            padding-bottom: 5rem;
+        }
+        .container-about {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+            
+           
         }
 
-        span {
-            color: #ffffff;
-            font-style: italic;
-            font-family: "Playfair-Display" !important;
-            font-size: 42px;
+        p.description {
+            width: 80%;
         }
+
+        
 
         /** Mobile Responsive */
-
         @media screen and (max-width: 768px) {
-            .main-about {
-                height: 100%;
-                max-width: 100%;
-                padding: 8rem 1.5rem;
-                background-color: #101010;
-                font-size: 42px;
-                color: #ffffff;
-            }
-
-            h1 {
-                color: #ffffff;
-                font-size: 42px;
-                max-width: 100%;
-                padding: 3%;
+            .container-about{
                 text-align: center;
-                line-height: 0.6;
             }
 
-            p {
-                color: rgb(255, 255, 255);
-                font-size: 18px;
-                max-width: 100%;
-                text-align: center;
-                padding-top: 2%;
-            }
+            p.description {
+            width: 100%;
+        }
+            
 
-            span {
-                font-size: 42px;
-            }
         }
     </style>
-</div>
