@@ -1,74 +1,103 @@
 ---
-// Ejemplo minimalista de un carrusel horizontal automático en Astro.
-// Ajusta la información de tu equipo según necesites.
 const equipo = [
-  { nombre: 'Hernán Estupiñán', rol: 'Marketing Manager', foto: '/img/team/hernan-estupinan.webp' },
-  { nombre: 'Laura Díaz', rol: 'Data Analitycs Specialist', foto: '/img/team/laura-diaz.webp' },
-  { nombre: 'Nicolás Guzmán', rol: 'Development Manager', foto: '/img/team/nicolas-guzman.webp' },
-  { nombre: 'Rubén Navarro', rol: 'UX/UI Director', foto: '/img/team/ruben-navarro.webp' },
-  { nombre: 'Felipe Estupiñán', rol: 'Project Manager', foto: '/img/team/felipe-estupinan.webp' },
+  {
+    nombre: "Hernán Estupiñán",
+    rol: "Growth Specialist",
+    foto: "/img/team/hernan-estupinan.webp",
+  },
+  {
+    nombre: "Laura Díaz",
+    rol: "Data Analitycs Specialist",
+    foto: "/img/team/laura-diaz.webp",
+  },
+  {
+    nombre: "Nicolás Guzmán",
+    rol: "Development Manager",
+    foto: "/img/team/nicolas-guzman.webp",
+  },
+  {
+    nombre: "Rubén Navarro",
+    rol: "UX/UI Specialist",
+    foto: "/img/team/ruben-navarro.webp",
+  },
+  {
+    nombre: "Felipe Estupiñán",
+    rol: "Cybersecurity Specialist",
+    foto: "/img/team/felipe-estupinan.webp",
+  },
 ];
 ---
 
-<div class="contenedor">
-  <h1 style="white-space: pre-wrap;">🦊 Nuestra<span> Manada</span></h1>
-  <div class="scroll">
-    {equipo.map((persona) => (
-      <article class="miembro">
-        <img src={persona.foto} alt={`Foto de ${persona.nombre}`} />
-        <h2>{persona.nombre}</h2>
-        <p>{persona.rol}</p>
-      </article>
-    ))}
-    {/* Duplicamos el contenido para un efecto de bucle continuo */}
-    {equipo.map((persona) => (
-      <article class="miembro">
-        <img src={persona.foto} alt={`Foto de ${persona.nombre}`} />
-        <h2>{persona.nombre}</h2>
-        <p>{persona.rol}</p>
-      </article>
-    ))}
+<section class="section-team">
+  <div class="container-team">
+    <h1 style="white-space: pre-wrap;">🦊 Nuestra<span> Manada</span></h1>
+    <div class="scroll">
+      {
+        equipo.map((persona) => (
+          <article class="miembro">
+            <img src={persona.foto} alt={`Foto de ${persona.nombre}`} />
+            <h2>{persona.nombre}</h2>
+            <h3>{persona.rol}</h3>
+          </article>
+        ))
+      }
+
+    </div>
   </div>
-</div>
+</section>
 
 <style>
-  .contenedor {
-    width: 100%;
-    overflow: hidden;
-    background: radial-gradient(circle, #202020 0%, #101010 100%);
-    color: #fff;
-    padding: 0% 18% 12% 18%;
-    box-sizing: border-box;
+  .section-team {
+    background: #101010;
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .container-team {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: #8f8e8e;
+  }
+
+  h2 {
+    line-height: 1.2;
+    margin: 0% !important;
   }
 
   h1 {
-            color: white;
-            font-size: 42px;
-            max-width: 100%;
-            line-height: normal;
-            padding: 10rem 0rem;
-            text-align: center;
-        }
+    color: white;
+    font-size: 42px;
+    max-width: 100%;
+    line-height: normal;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
 
-        p {
-            color: #ffffff;
-            font-size: 16px;
-            max-width: 100%;
-        }
+  p {
+    color: #ffffff;
+    font-size: 16px;
+    max-width: 100%;
+  }
 
-        span {
-            color: #ffffff;
-            font-style: italic;
-            font-family: "Playfair-Display" !important;
-            font-size: 42px;
-        }
+  span {
+    color: #ffffff;
+    font-style: italic;
+    font-family: "Playfair-Display" !important;
+    font-size: 42px;
+  }
 
   .scroll {
     display: flex;
     gap: 3.5rem;
     /* La idea es ocupar el doble de espacio para el bucle */
-    width: 200%;
-    animation: desplazar 20s linear infinite;
+    width: 100%;
+    animation: desplazar 90s linear infinite;
   }
 
   .miembro {
@@ -87,45 +116,42 @@ const equipo = [
   }
 
   @keyframes desplazar {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
-  h2{
+  h2 {
     font-size: 1.3rem;
     padding-top: 1.3rem;
   }
 
-  p{
+  p {
     font-size: 0.8rem;
-    color:#8f8e8e;
+    color: #8f8e8e;
   }
 
-   /** Mobile Responsive */
+  /** Mobile Responsive */
 
-   @media screen and (max-width: 768px) {
-
-    .contenedor{
+  @media screen and (max-width: 768px) {
+    .contenedor {
       padding: 5rem 1.5rem;
     }
-    
+
     .scroll {
-    animation: desplazar 10s linear infinite;
-    width: 700%;
+      animation: desplazar 10s linear infinite;
+      width: 700%;
     }
 
-    h2{
-    font-size: 1.3rem;
+    h2 {
+      font-size: 1.3rem;
     }
 
-    h1{
+    h1 {
       padding: 5rem 0rem;
-
     }
-
-
-   }
-
-
-
+  }
 </style>
