@@ -122,14 +122,15 @@ const equipoDuplicado = [...equipo, ...equipo];
   .photo-container {
     position: relative;
     margin-bottom: 1rem;
+    padding-left: 1rem;
   }
 
   .photo-container::before {
     content: '';
     position: absolute;
     inset: -4px;
-    background: linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35);
-    border-radius: 50%;
+    /**background: linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35);**/
+    border-radius: 20%;
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
