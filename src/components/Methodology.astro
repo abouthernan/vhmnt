@@ -1,237 +1,341 @@
-<div class="section-methodology">
+---
+const metodologia = [
+  {
+    icon: "👨‍💻",
+    title: "Construimos",
+    description: "Desarrollamos soluciones tecnológicas innovadoras con las mejores prácticas del mercado",
+    delay: "0ms"
+  },
+  {
+    icon: "🧪",
+    title: "Medimos",
+    description: "Analizamos métricas y datos para evaluar el rendimiento y impacto de nuestras soluciones",
+    delay: "200ms"
+  },
+  {
+    icon: "🧠",
+    title: "Aprendemos",
+    description: "Extraemos insights valiosos de los resultados para mejorar continuamente nuestros procesos",
+    delay: "400ms"
+  },
+  {
+    icon: "🔄",
+    title: "Iteramos",
+    description: "Aplicamos mejoras constantes basadas en el aprendizaje para optimizar los resultados",
+    delay: "600ms"
+  }
+];
+---
+
+<section class="section-methodology">
   <div class="container-methodology">
     <!-- TÍTULO PRINCIPAL -->
-    <h1>Así es como <span>lo hacemos...</span></h1>
+    <h1 class="main-title">
+      Así es como <span class="italic-text">lo hacemos...</span>
+    </h1>
+
     <!-- TARJETAS DE CADA PASO -->
-    <div class="cards">
-      <!-- Paso 1 -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-icon">👨‍💻</div>
-            <div class="card-title">Construimos</div>
+    <div class="cards-container">
+      {metodologia.map((paso, index) => (
+        <div 
+          class="methodology-card" 
+          data-aos="fade-up"
+          style={`animation-delay: ${paso.delay}`}
+        >
+          <div class="card-icon-container">
+            <div class="card-icon">{paso.icon}</div>
+            <div class="step-number">0{index + 1}</div>
           </div>
-        </div>
-        <p></p>
-      </div>
-
-      <!-- Paso 2 -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-icon">🧪️</div>
-            <div class="card-title">Medimos</div>
+          <div class="card-content">
+            <h3 class="card-title">{paso.title}</h3>
+            <p class="card-description">{paso.description}</p>
           </div>
+          <div class="card-glow"></div>
         </div>
-        <p></p>
-      </div>
-
-      <!-- Paso 3 -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-icon">🧠</div>
-            <div class="card-title">Aprendemos</div>
-          </div>
-        </div>
-        <p></p>
-      </div>
-
-      <!-- Paso 4 -->
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-icon">🔄</div>
-            <div class="card-title">Iteramos</div>
-          </div>
-        </div>
-        <p></p>
-      </div>
+      ))}
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .section-methodology {
     background: #101010;
     color: white;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-methodology::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .container-methodology {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0;
-  }
-
-  /* ===== TÍTULO PRINCIPAL ===== */
-  h1 {
-    color: white;
-    font-size: 42px;
-    max-width: 100%;
-    line-height: normal;
-    padding: 0% 5% 5% 0%;
-    text-align: center;
-  }
-
-  span {
-    color: white;
-    font-style: italic;
-    font-family: Playfair-Display;
-    font-size: 50px;
-  }
-
-  /* ===== TIMELINE SUPERIOR ===== */
-  .timeline {
+    padding: 0 10rem;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    margin-top: 5rem;
-  }
-
-  /* Línea base de la timeline */
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #ddd;
-    transform: translateY(-50%);
     z-index: 1;
   }
 
-  /* Cada círculo (paso) */
-  .timeline-step {
-    position: relative;
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #ebebeb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-weight: bold;
-  }
-
-  /* El primer círculo (activo) */
-  .timeline-step.active {
-    background: #7a32f7; /* morado */
-    color: #fff;
-  }
-
-  /* Para mostrar un check en el paso activo */
-  .timeline-step.active::before {
-    content: "✔";
-    font-weight: normal;
-    font-size: 0.9rem;
-  }
-
-  /* ===== CONTENEDOR DE TARJETAS ===== */
-  .cards {
-    display: flex;
-    flex-wrap: wrap; /* Ajuste en caso de pantallas pequeñas */
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .card {
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 180px; /* Mínimo ancho de tarjeta */
-    max-width: 250px;
-    padding: 1rem;
+  /* ===== TÍTULO PRINCIPAL ===== */
+  .main-title {
+    color: white;
+    font-size: clamp(32px, 6vw, 48px);
     text-align: center;
-    background-color: #343434;
-    border: 0px;
-    color: #fff;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: titleFadeIn 1s ease-out 0.5s forwards;
   }
 
-  .card-header {
-    display: block;
+  .italic-text {
+    color: #fff;
+    font-style: italic;
+    font-family: "Playfair-Display", serif;
+    background: linear-gradient(45deg, #ffffff, #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ===== TARJETAS ===== */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .methodology-card {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid #333;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardFadeIn 0.8s ease-out forwards;
+    overflow: hidden;
+  }
+
+  .methodology-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #10B981;
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2),
+                0 0 20px rgba(16, 185, 129, 0.1);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #101010, #101010, #101010);
+    border-radius: 18px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.6s ease;
+  }
+
+  .methodology-card:hover .card-glow {
+    opacity: 0.7;
+  }
+
+  .card-icon-container {
+    display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    background-color: #343434;
-    color: #fff;
-    border-bottom: 0px;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 
-  /* Ícono en la parte superior de la tarjeta */
   .card-icon {
-    font-size: 2.5rem;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    margin-top: 0.8rem;
+    font-size: 3rem;
+    animation: iconBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
   }
 
-  /* Texto pequeño “STEP X” */
-  .card-step {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: #141414;
-    margin-bottom: 0.25rem;
-  }
-
-  /* Nombre del paso */
-  .card-title {
-    font-weight: bold;
+  .step-number {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
-    align-items: center;
+    color: #666;
+    font-weight: 300;
+    opacity: 0.7;
   }
 
-  .card p {
-    font-size: 14px;
-    color: #e0e0e0;
-    line-height: 1.2;
-    font-family: "Open Sans", serif;
-    margin-bottom: 0.8rem;
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  /** Mobile Responsive */
+  .card-description {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+    font-family: "Open Sans", sans-serif;
+  }
 
+  /* ===== ANIMACIONES ===== */
+  @keyframes titleFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes lineProgress {
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes dotActivate {
+    to {
+      background: linear-gradient(45deg, #10B981, #34D399);
+      border-color: #10B981;
+      color: white;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    }
+  }
+
+  @keyframes cardFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes iconBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* ===== RESPONSIVE DESIGN ===== */
   @media screen and (max-width: 768px) {
-    .main-container {
-      height: 30rem;
-      padding: 5rem 1.5rem;
-      background-color: #101010;
-      font-size: 42px;
-      color: #ffffff;
+    .section-methodology {
+      padding: 3rem 0;
     }
 
-    h1 {
-      color: #ffffff;
-      font-size: 42px;
-      text-align: center;
-      max-width: 100%;
-      line-height: normal;
-      padding-bottom: 3rem;
+    .container-methodology {
+      padding: 0 1rem;
     }
 
-    p {
-      color: rgb(255, 255, 255);
-      font-size: 12px;
-      max-width: 100%;
+    .main-title {
+      margin-bottom: 3rem;
     }
 
-    .card {
-      max-width: 100%;
-      padding: 1rem 3rem;
+    .cards-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
-    span {
-      font-size: 42px;
+    .methodology-card {
+      padding: 1.5rem;
     }
 
-    /* Nombre del paso */
+    .methodology-card:hover {
+      transform: translateY(-5px) scale(1.01);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+    }
+
     .card-title {
-      font-size: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .card-description {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .methodology-card {
+      padding: 1.25rem;
+    }
+
+    .card-icon {
+      font-size: 2.25rem;
+    }
+
+    .process-line {
+      justify-content: center;
+    }
+  }
+
+  /* Reducir movimiento para usuarios sensibles */
+  @media (prefers-reduced-motion: reduce) {
+    .methodology-card:hover {
+      transform: none;
+    }
+
+    .card-icon {
+      animation: none;
+    }
+
+    .animated-line::before,
+    .process-dot {
+      animation: none;
     }
   }
 </style>
+
+<script>
+  // Intersection Observer para activar animaciones al hacer scroll
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observar todas las tarjetas
+  document.querySelectorAll('.methodology-card').forEach(card => {
+    observer.observe(card);
+  });
+
+  // Efecto de parallax sutil en el fondo
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const section = document.querySelector('.section-methodology');
+    
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      const speed = scrolled * 0.5;
+      
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        section.style.transform = `translateY(${speed * 0.1}px)`;
+      }
+    }
+  });
+</script>

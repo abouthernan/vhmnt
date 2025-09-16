@@ -3,6 +3,18 @@
     <div class="gradient-heading">
       <h1>Usamos<br /><span class="gradient-accent">ciencia y tecnología</span><br /> para hacer crecer empresas.</h1>
     </div>
+     <!-- Call to Action -->
+    <div class="cta-container">
+      <a
+        href="https://cal.com/abouthernan/vehement"
+        class="cta-gradient"
+      >
+        <!-- <svg class="cta-icon" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>-->
+        Agenda una asesoría
+      </a>
+    </div>
   </div>
 </section>
 
@@ -52,6 +64,65 @@
         opacity: 1;
     }
 }
+
+
+ /* CTA Styles */
+  .cta-container {
+    margin-top: 2.5rem;
+    text-align: left;
+    position: relative;
+    z-index: 5;
+  }
+
+  .cta-gradient {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #00f5ff, #00ff88);
+    color: #000;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 245, 255, 0.4);
+  }
+
+  .cta-gradient::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .cta-gradient:hover::before {
+    left: 100%;
+  }
+
+  .cta-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
 
 
   /** Mobile Responsive */
