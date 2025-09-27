@@ -1,12 +1,8 @@
----
-// Tu código Astro aquí si necesitas
----
-
 <section class="section-hero">
   <div class="container-hero">
     <div class="gradient-heading">
-      <h1>Usamos<br />ciencia y tecnología<br /> 
-      para 
+      <h1> Usamos<br class="break-desktop" /> ciencia y tecnología<br class="break-desktop" />
+      para <br class="break-mobile" />
       <span class="dynamic-text">
         <span class="text-option gradient-accent">crecer empresas.</span>
         <span class="text-option gradient-accent">crear productos.</span>
@@ -31,7 +27,12 @@
 
 <style>
 
-  /* Main Hero*/
+
+/* Desktop */
+.break-desktop { display: block; }  /* Visible en desktop */
+.break-mobile { display: none; }    /* Oculto en desktop */
+
+
 
   .section-hero {
     background: #101010;
@@ -83,7 +84,7 @@
 
   /* Gradient Heading Styles */
   .gradient-heading {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 2rem;
@@ -201,7 +202,7 @@
       max-width: 100%;
       text-align: center;
       line-height: 1;
-      padding: 0 1rem; /* Agregar padding lateral */
+      padding: 0 0.5rem; /* Agregar padding lateral */
     }
 
     .gradient-heading h1 {
@@ -248,23 +249,18 @@
       position: absolute;
       top: 0;
       left: 0;
-      font-size: 1em; /* Reducir tamaño del texto dinámico */
+      font-size: 0.75em; /* Reducir tamaño del texto dinámico */
       width: 100%;
       text-align: center; /* Alinear a la izquierda */
       line-height: 1.1;
 
     }
-  }
 
-  /* Para pantallas muy pequeñas */
-  @media screen and (max-width: 480px) {
-    .gradient-heading {
-      font-size: 2.5rem;
-    }
-    
-    .text-option {
-      font-size: 0.85em; /* Aún más pequeño en pantallas muy pequeñas */
-    }
+    /* Mobile */
+  .break-desktop { display: none; }   /* Oculto en mobile */
+  .break-mobile { display: block; }   /* Visible en mobile */
+
+
   }
   
 </style>
