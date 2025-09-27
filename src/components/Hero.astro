@@ -5,7 +5,7 @@
 <section class="section-hero">
   <div class="container-hero">
     <div class="gradient-heading">
-      <h1>Usamos<br />ciencia y tecnología</span><br /> 
+      <h1>Usamos<br />ciencia y tecnología<br /> 
       para 
       <span class="dynamic-text">
         <span class="text-option gradient-accent">crecer empresas.</span>
@@ -45,6 +45,10 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0;
+  }
+
+  span{
+    font-size: 1em;
   }
 
     .section-hero::before {
@@ -93,13 +97,16 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-size: 1.1em;
+    line-height: inherit;
+    vertical-align: baseline;   
   }
 
   /* Texto dinámico */
   .dynamic-text {
     display: inline-block;
     position: relative;
-    height: 1em; /* Altura fija para evitar saltos */;
+    vertical-align: top;
+    line-height: 1.1;
   }
 
   .text-option {
@@ -110,6 +117,8 @@
     white-space: nowrap;
     animation: textRotate 6s infinite;
     transform: translateX(10px);
+    vertical-align: baseline;
+  
   }
 
   .text-option:nth-child(1) { animation-delay: 0s; }
@@ -119,7 +128,7 @@
   @keyframes textRotate {
     0%, 20% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
     25%, 100% {
         opacity: 0;
@@ -188,22 +197,30 @@
 
   @media screen and (max-width: 768px) {
     .gradient-heading {
-      font-size: 3.5rem;
+      font-size: 3rem; /* Reducir más el tamaño */
       max-width: 100%;
       text-align: center;
-      line-height: normal;
+      line-height: 1;
+      padding: 0 1rem; /* Agregar padding lateral */
+    }
+
+    .gradient-heading h1 {
+      overflow: hidden; /* Evitar desbordamiento */
     }
 
     .gradient-accent {
-      font-size: 1.2em;
+      font-size: 1.1em; /* Reducir un poco */
     }
 
     .section-hero {
-    padding-top: 10rem;
- 
-  }
+      padding-top: 8rem; /* Reducir padding superior */
+    }
 
-   .cta-container {
+    .container-hero {
+      padding: 0 1rem; /* Agregar padding al contenedor */
+    }
+
+    .cta-container {
       margin-top: 1.5rem;
       text-align: center;
     }
@@ -213,17 +230,41 @@
       font-size: 1rem;
     }
 
+     span{
+    font-size:1.5em;
+  }
+
+    /* Texto dinámico optimizado para móvil */
     .dynamic-text {
-      height: auto;
+      height: 1em; /* Altura más compacta */
+      display: inline-block;
+      width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+      overflow: hidden; /* Evitar desbordamiento */
+   
     }
 
     .text-option {
-      white-space: normal;
-      position: relative;
-      display: block;
-    
-    }
+      white-space: nowrap; /* NO permitir salto de línea */
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 1em; /* Reducir tamaño del texto dinámico */
+      width: 100%;
+      text-align: center; /* Alinear a la izquierda */
+      line-height: 1.1;
 
+    }
+  }
+
+  /* Para pantallas muy pequeñas */
+  @media screen and (max-width: 480px) {
+    .gradient-heading {
+      font-size: 2.5rem;
+    }
+    
+    .text-option {
+      font-size: 0.85em; /* Aún más pequeño en pantallas muy pequeñas */
+    }
   }
   
 </style>
