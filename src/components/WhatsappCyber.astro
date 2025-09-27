@@ -1,0 +1,85 @@
+<a
+  href="https://wa.me/+573107526741?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." 
+  onclick="return gtag_report_conversion(this.href);"
+  class="whatsapp" 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  <img
+    src="img/logos/whatsapp-logo.svg"
+    alt="WhatsApp"
+    class="whatsapp-icon"
+  />
+  <span class="whatsapp-text"></span>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 1rem;
+    z-index: 9999;
+  }
+  .whatsapp-icon {
+    max-width: 2rem;
+    max-height: 2rem;
+    border-radius: 0%;
+    right: 2.75rem;
+    position: fixed;
+  }
+  span{
+    color: white;
+    padding-left: 0.5rem;
+  }
+  .whatsapp-text {
+    font-size: 0.9rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center ;
+    text-decoration: none;
+    font-style: normal;
+    right: 2rem;
+  }
+
+  .whatsapp {
+    align-items: center;
+    background-color: #25d366;
+    border-radius: 100%;
+    bottom: 2rem;
+    box-shadow: 0 0 24px 0 rgba(37, 211, 102, .5);
+    cursor: pointer;
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    position: fixed;
+    right: 2rem;
+    transition: background-color .3s;
+    width: 56px;
+    z-index: 999;
+}
+
+
+  @media screen and (max-width: 768px) {
+
+  .whatsapp-float {
+    position: fixed;
+    bottom:0.5rem;
+    right: 0.2rem;
+    z-index: 9999;
+  }
+  .whatsapp-icon {
+    max-width: 2rem !important;
+    max-height: 2rem !important;
+    border-radius: 0%;
+    right: 2.75rem;
+   
+  }
+
+  .whatsapp-text {
+    padding-left: 0;
+    padding-right: 0.5rem;
+  }
+
+  }
+
+
+</style>
