@@ -1,9 +1,8 @@
 ---
-import GoogleAnalytics from "../components/Analytics.astro";
 import Header from "../components/Header.astro";
-import Tags from "../components/Tags.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import WhConversion from "../components/WhConversion.astro";
+import GoogleTagManager from "../components/GoogleTagManager.astro";
 
 interface Props {
 	//Typescrypt
@@ -22,7 +21,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 
 		<meta
-			name="Vehement Agency"
+			name="Vehement - Agencia de Transformación Digital"
 			content="Somos un equipo de expertos en diferentes áreas, enfocados en la metodología Lean Startup; creamos, medimos, aprendemos, iteramos. Somos Data Driven, lo que no se mide no se mejora. Hacemos Producto, Ingeniería Web, Growth Marketing, Scientific Advertising, UX/UI, Automatización IA, Cyberseguridad, Consultoría y Mentoría."
 		/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,10 +30,12 @@ const { title } = Astro.props;
 			content="width=device-width, initial-scale=1, maximum-scale=1"
 		/>
 
+		 <!-- GTM debe ir lo más alto posible en head -->
+  		<GoogleTagManager id="GTM-P43X3WWC" />
+
 		<!--Tags Conversion-->
 		<WhConversion />
-		 <!-- Otros meta tags -->
-  		<GoogleAnalytics id="G-HTNRCRL5YM" />
+		
 
 		<!--Favicon-->
 		<link rel="icon" type="image/svg+xm" href="/img/logos/favicon.svg" />
@@ -72,8 +73,6 @@ const { title } = Astro.props;
 		<script is:inline src="/scripts/vlt-controllers.min.js" defer></script>
 		<script src="/scripts/menu.js" defer></script>
 
-		<GoogleAnalytics />
-		<WhConversion />
 	</head>
 
 	<Header />
