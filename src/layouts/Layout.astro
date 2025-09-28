@@ -3,6 +3,11 @@ import Header from "../components/Header.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import WhConversion from "../components/WhConversion.astro";
 import GoogleTagManager from "../components/GoogleTagManager.astro";
+import Hotjar from '../components/Hotjar.astro';
+
+const HOTJAR_ID = import.meta.env.PUBLIC_HOTJAR_ID;
+const HOTJAR_SV = import.meta.env.PUBLIC_HOTJAR_SV;
+const isProd = import.meta.env.PROD;
 
 interface Props {
 	//Typescrypt
@@ -32,6 +37,11 @@ const { title } = Astro.props;
 
 		 <!-- GTM debe ir lo más alto posible en head -->
   		<GoogleTagManager id="GTM-P43X3WWC" />
+
+		 <!-- Hotjar -->
+		{isProd && HOTJAR_ID && HOTJAR_SV && (
+			<Hotjar id={parseInt(HOTJAR_ID)} sv={parseInt(HOTJAR_SV)} />
+		)}
 
 		<!--Tags Conversion-->
 		<WhConversion />
