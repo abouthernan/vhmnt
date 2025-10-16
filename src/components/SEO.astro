@@ -1,0 +1,57 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  noindex?: boolean;
+}
+
+const {
+  title = 'Vehement - Desarrollo Web, Marketing Digital y Ciberseguridad',
+  description = 'Empresa colombiana especializada en Desarrollo Web y de Producto, Marketing Digital, Growth y Ciberseguridad. Impulsamos tu negocio con soluciones innovadoras y seguras.',
+  canonical = Astro.url.pathname,
+  image = '/og-image.jpg',
+  type = 'website',
+  noindex = false
+} = Astro.props;
+
+const baseUrl = 'https://vehement.co';
+const fullCanonical = new URL(canonical, baseUrl).href;
+const fullImage = new URL(image, baseUrl).href;
+---
+
+<!-- Meta Tags Básicos -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonical} />
+
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImage} />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:site_name" content="Vehement" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={fullCanonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImage} />
+
+<!-- Información de la Empresa -->
+<meta name="author" content="Vehement" />
+<meta name="geo.region" content="CO-DC" />
+<meta name="geo.placename" content="Bogotá" />
+<meta name="geo.position" content="4.7110;-74.0721" />
+<meta name="ICBM" content="4.7110, -74.0721" />
+
+<title>{title}</title>

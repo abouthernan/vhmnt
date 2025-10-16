@@ -1,0 +1,26 @@
+# robots.txt para Vehement
+User-agent: *
+Allow: /
+
+# Bloquear áreas privadas o de administración si existen
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://vehement.co/sitemap-index.xml
+Sitemap: https://vehement.co/sitemap-0.xml
+
+# Bots específicos de Colombia
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay para bots más agresivos
+User-agent: Baiduspider
+Crawl-delay: 10
+
+User-agent: YandexBot
+Crawl-delay: 10

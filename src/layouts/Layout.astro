@@ -4,6 +4,8 @@ import Whatsapp from "../components/Whatsapp.astro";
 import WhConversion from "../components/WhConversion.astro";
 import GoogleTagManager from "../components/GoogleTagManager.astro";
 import Hotjar from '../components/Hotjar.astro';
+import SEO from '../components/SEO.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
 const HOTJAR_ID = import.meta.env.PUBLIC_HOTJAR_ID;
 const HOTJAR_SV = import.meta.env.PUBLIC_HOTJAR_SV;
@@ -12,28 +14,40 @@ const isProd = import.meta.env.PROD;
 interface Props {
 	//Typescrypt
 	title: string;
+	description?: string;
+	canonical?: string;
+	image?: string;
+	type?: 'website' | 'article' | 'product';
+	noindex?: boolean;
+	includeSchema?: boolean;
+
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  image,
+  type = 'website',
+  noindex = false,
+  includeSchema = true
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<!--<meta name="viewport" content="width=device-width" /> -->
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 
-		<meta
-			name="Vehement - Agencia de Transformación Digital"
-			content="Somos un equipo de expertos en diferentes áreas, enfocados en la metodología Lean Startup; creamos, medimos, aprendemos, iteramos. Somos Data Driven, lo que no se mide no se mejora. Hacemos Producto, Ingeniería Web, Growth Marketing, Scientific Advertising, UX/UI, Automatización IA, Cyberseguridad, Consultoría y Mentoría."
-		/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, maximum-scale=1"
-		/>
+		 <SEO 
+    title={title}
+    description={description}
+    canonical={canonical}
+    image={image}
+    type={type}
+    noindex={noindex}
+  />
+  
+  {includeSchema && <SchemaOrg />}
 
 		 <!-- GTM debe ir lo más alto posible en head -->
   		<GoogleTagManager id="GTM-P43X3WWC" />

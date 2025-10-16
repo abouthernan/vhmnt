@@ -1,0 +1,127 @@
+---
+// Datos estructurados para la empresa
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vehement",
+  "url": "https://vehement.co",
+  "logo": "https://vehement.co/img/logos/logo-vehement.webp",
+  "foundingDate": "2014-05-06",
+  "founder": {
+    "@type": "Person",
+    "name": "Hernán Estupiñán"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Bogotá D.C.",
+    "addressCountry": "CO"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Servicio al Cliente",
+    "availableLanguage": ["es", "en"]
+  },
+  "sameAs": [
+    // Agregar redes sociales cuando estén disponibles
+    // "https://www.linkedin.com/company/vehement",
+    // "https://twitter.com/vehement"
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vehement",
+  "image": "https://vehement.co/og-image.jpg",
+  "url": "https://vehement.co",
+  "telephone": "+57-310-752-6741", // Actualizar con número real
+  "priceRange": "$50USD / hora", // Actualizar según corresponda
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cr 14 #94A-61", // Agregar dirección si es pública
+    "addressLocality": "Bogotá",
+    "addressRegion": "Bogotá D.C.",
+    "postalCode": "110141", // Agregar código postal
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 4.68035,
+    "longitude": -74.1316701
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "1"
+  }
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Servicios de Tecnología",
+  "provider": {
+    "@type": "Organization",
+    "name": "Vehement"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Colombia"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Vehement",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Desarrollo Web y de Producto",
+          "description": "Desarrollo de aplicaciones web y productos digitales personalizados"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Marketing Digital y Growth",
+          "description": "Estrategias de marketing digital y crecimiento empresarial"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Ciberseguridad",
+          "description": "Servicios de seguridad informática y protección de datos"
+        }
+      }
+    ]
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://vehement.co"
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
