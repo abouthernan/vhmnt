@@ -1,14 +1,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://vehement.co',
+  trailingSlash: 'never', // Elimina URLs duplicadas con / al final
   integrations: [
     tailwind(),
-     sitemap({
+    sitemap({
       i18n: {
         defaultLocale: 'es',
         locales: {
@@ -17,12 +17,6 @@ export default defineConfig({
         },
       },
       // Personalizar prioridad y frecuencia de cambio
-      customPages: [
-        'https://vehement.co/',
-        'https://vehement.co/desarrollo',
-        'https://vehement.co/marketing',
-        'https://vehement.co/ciberseguridad',
-      ],
       serialize(item) {
         // Configurar prioridad según la página
         if (item.url === 'https://vehement.co/') {
@@ -45,9 +39,10 @@ export default defineConfig({
         return item;
       },
     }),
-
-  ]
-
-
+  ],
+  // Optimizaciones adicionales
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  compressHTML: true,
 });
-
