@@ -6,6 +6,7 @@ import GoogleTagManager from "../components/GoogleTagManager.astro";
 import Hotjar from '../components/Hotjar.astro';
 import SEO from '../components/SEO.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
+import Tags from "../components/Tags.astro";
 
 const HOTJAR_ID = import.meta.env.PUBLIC_HOTJAR_ID;
 const HOTJAR_SV = import.meta.env.PUBLIC_HOTJAR_SV;
@@ -56,7 +57,14 @@ const {
 		{isProd && HOTJAR_ID && HOTJAR_SV && (
 			<Hotjar id={parseInt(HOTJAR_ID)} sv={parseInt(HOTJAR_SV)} />
 		)}
-
+		<!-- Google Ads -->
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GOOGLE_ADS_ID}`}></script>
+		<script is:inline define:vars={{ adsId: import.meta.env.PUBLIC_GOOGLE_ADS_ID }}>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', adsId);
+		</script>	
 		<!--Tags Conversion-->
 		<WhConversion />
 		
