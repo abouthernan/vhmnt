@@ -57,14 +57,7 @@ const {
 		{isProd && HOTJAR_ID && HOTJAR_SV && (
 			<Hotjar id={parseInt(HOTJAR_ID)} sv={parseInt(HOTJAR_SV)} />
 		)}
-		<!-- Google Ads -->
-		<script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GOOGLE_ADS_ID}`}></script>
-		<script is:inline define:vars={{ adsId: import.meta.env.PUBLIC_GOOGLE_ADS_ID }}>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', adsId);
-		</script>	
+	
 		<!--Tags Conversion-->
 		<WhConversion />
 		
